@@ -21,7 +21,7 @@ and open the template in the editor.
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="A data não pode ser vazio.">
-                <f:convertDateTime pattern="dd/MM/yyyy"/>
+<!--                <f:convertDateTime pattern="dd/MM/yyyy"/>-->
                 <f:convertDateTime dateStyle="dd/MM/yyyy"/>
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
