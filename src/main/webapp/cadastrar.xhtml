@@ -19,8 +19,8 @@ and open the template in the editor.
             Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}" required="true" requiredMessage="O título não pode ser vazio."/>
             <h:message for="titulo"/><br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato AAAA"
-             <f:convertDateTime pattern="yyyy" />
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/mm/AAAA"
+             <f:convertDateTime pattern="dd/MM/yyyy" />
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
