@@ -1,6 +1,7 @@
 package com.dantas.locadora;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 
@@ -17,7 +18,7 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class GerenciarFilmes {
     private String titulo, descricao;
-    private Date data_lancamento;
+    private String data_lancamento;
     private int nota;
     private int quantidade;
     private ArrayList<ModeloFilme> listaDeFilmes;
@@ -26,8 +27,7 @@ public class GerenciarFilmes {
     private FilmeDAO novo = new FilmeDAO();
     
     public String cadastrarFilme(){
-        String data = String.valueOf(data_lancamento);
-        f = new ModeloFilme(titulo, descricao, data, nota, quantidade);
+        f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade);
         novo.cadastrar(f);
         return "cadastrado";
     }
@@ -55,11 +55,11 @@ public class GerenciarFilmes {
         this.descricao = descricao;
     }
 
-    public Date getData_lancamento() {
+    public String getData_lancamento() {
         return data_lancamento;
     }
 
-    public void setData_lancamento(Date data_lancamento) {
+    public void setData_lancamento(String data_lancamento) {
         this.data_lancamento = data_lancamento;
     }
 
