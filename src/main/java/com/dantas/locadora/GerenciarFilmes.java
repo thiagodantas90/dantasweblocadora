@@ -22,6 +22,7 @@ public class GerenciarFilmes {
     private int nota;
     private int quantidade;
     private ArrayList<ModeloFilme> listaDeFilmes;
+    private ArrayList<ModeloFilme> cesta;
     
     public ModeloFilme f;
     private FilmeDAO novo = new FilmeDAO();
@@ -33,6 +34,10 @@ public class GerenciarFilmes {
     }
     public String cancelar(){
         return "cancelar";
+    }
+    
+    public void adicionarCesta(String titulo){
+        //cesta.add();
     }
     
     public ArrayList<ModeloFilme> listarFilmes(){

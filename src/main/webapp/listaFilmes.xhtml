@@ -18,25 +18,30 @@ and open the template in the editor.
             
             <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi">
                 <h:column>
-                    <f:facet name="header">Título</f:facet>
+                    <f:facet id="titulo" name="header">Título</f:facet>
                     #{fi.titulo}
+                    
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Descrição</f:facet>
+                    <f:facet id="descricao" name="header">Descrição</f:facet>
                     #{fi.descricao}
                 </h:column>
                  <h:column>
-                    <f:facet name="header">Data de Lançamento</f:facet>
+                    <f:facet id="data" name="header">Data de Lançamento</f:facet>
                     #{fi.data_lancamento}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Nota</f:facet>
+                    <f:facet id="nota" name="header">Nota</f:facet>
                     #{fi.nota}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Quantidade</f:facet>
                     #{fi.quantidade}
                 </h:column>
+                <h:column>
+                    <h:commandButton action="#{gerenciarFilmes.adicionarCesta()}" value="Adicionar" />
+                </h:column>
+                
             </h:dataTable>
         </h:form>
        
