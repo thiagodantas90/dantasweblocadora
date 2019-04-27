@@ -25,18 +25,18 @@ and open the template in the editor.
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5" required="true" requiredMessage="A nota não pode ser vazio.">
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5">
 <!--            <f:validateRegex pattern="([1-5]+)"/>-->
                 </h:inputText>
                 <h:message for="nota"/><br/>
                 
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" validatorMessage="O descrição maior que 10 caracteres." required="true" requiredMessage="A nota não pode ser vazio.">
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" validatorMessage="O descrição maior que 10 caracteres." required="true" requiredMessage="A descrição não pode ser vazio.">
                 <f:validateLength minimum="10"/>
                 </h:inputText>:
                 <h:message for="descricao"/>
             <br/>
             
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros" required="true" requiredMessage="O quantidade não pode ser vazio.">
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros" >
               <f:validateLength minimum="1"/>
 <!--               <f:validateRegex pattern="([1-9]+)"/>-->
             </h:inputText>
