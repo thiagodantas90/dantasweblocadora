@@ -16,18 +16,18 @@ and open the template in the editor.
     <h:body>
         <h1>Cadastro de Filme</h1>
         <h:form>
-            Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}" required="true" requiredMessage="O título não pode ser vazio."/>
+<!--            Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}" required="true" requiredMessage="O título não pode ser vazio."/>
             <h:message for="titulo"/>
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="A data não pode ser vazio.">
-<!--            <f:convertDateTime pattern="dd/MM/yyyy"/>-->
+            <f:convertDateTime pattern="dd/MM/yyyy"/>
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
             Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5">
-<!--                <f:validateLength minimum="1"/>
-                <f:validateRegex pattern="([1-5])"/>-->
+                <f:validateLength minimum="1"/>
+                <f:validateRegex pattern="([1-5])"/>
                 </h:inputText>
                 <h:message for="nota"/><br/>
              
@@ -43,14 +43,27 @@ and open the template in the editor.
               <f:validateRegex pattern="([1-9])"/>
             </h:inputText>
             <h:message for="quantidade"/>
+            <br/>-->
             
+        <!--Teste -->
+            Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}"/>
+            <br/>
+            
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}"/>        
+            <br/>    
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}"/>
+            <br/>                        
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" />
+            <br/>
+            
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" />
             <br/>
             
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Confirmar"/><br/>
             <h:commandButton action="#{gerenciarFilmes.cancelar()}" value="Cancelar" />
         </h:form>
-        
-         <h:form>
+        <!--divisão-->
+        <h:form>
             
             <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi">
                 <h:column>
