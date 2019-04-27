@@ -27,15 +27,19 @@ and open the template in the editor.
                 
                 Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 0 e 9">
                 
-                <f:validateRegex pattern="([0-9]*)"/>
+                <f:validateRegex pattern="([1-5]+)"/>
                 </h:inputText>
 		<h:message for="nota"/><br/>
                 
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}"/><br/>
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" requiredMessage="O descrição maior que 10 caracteres.">
+                <f:validateLength minimum="10"/>
+                </h:inputText>:
+                <h:message for="descricao"/>
+            <br/>
             
             Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros">
               
-               <f:validateRegex pattern="([0-9]+)"/>
+               <f:validateRegex pattern="([1-9]+)"/>
             </h:inputText>
             <br/>
             
