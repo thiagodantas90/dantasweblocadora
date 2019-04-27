@@ -21,7 +21,7 @@ and open the template in the editor.
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="O a data não pode ser vazio.">
-                <f:convertDateTime pattern="dd/MM/yyyy" />
+<!--                <f:convertDateTime pattern="dd/MM/yyyy" />-->
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
@@ -30,7 +30,7 @@ and open the template in the editor.
                 </h:inputText>
                 <h:message for="nota"/><br/>
                 
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" requiredMessage="O descrição maior que 10 caracteres.">
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" validatorMessage="O descrição maior que 10 caracteres." required="true" requiredMessage="A nota não pode ser vazio.">
                 <f:validateLength minimum="10"/>
                 </h:inputText>:
                 <h:message for="descricao"/>
@@ -46,5 +46,32 @@ and open the template in the editor.
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Confirmar"/><br/>
             <h:commandButton action="#{gerenciarFilmes.cancelar()}" value="Cancelar" />
         </h:form>
+        
+         <h:form>
+            
+            <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi">
+                <h:column>
+                    <f:facet name="header">Título</f:facet>
+                    #{fi.titulo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                    #{fi.descricao}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">Data de Lançamento</f:facet>
+                    #{fi.data_lancamento}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nota</f:facet>
+                    #{fi.nota}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Quantidade</f:facet>
+                    #{fi.quantidade}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        
     </h:body>
 </html>
