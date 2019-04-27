@@ -6,7 +6,9 @@
 package com.dantas.locadora;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +19,7 @@ import java.util.logging.Logger;
 public class FilmeDAO {
     Banco conecta = new Banco();
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, DATA_LANCAMENTO, NOTA, DESCRICAO, QUANTIDADE) VALUES (?,?,?,?,?)";
+    private final String LISTARFILMES = "SELECT * FROM FILMES";
     
   
     public void cadastrar(ModeloFilme f1) {
@@ -37,5 +40,22 @@ public class FilmeDAO {
         } catch (SQLException ex) {
             Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public ArrayList<ModeloFilme> consultar(){
+        ArrayList<ModeloFilme> lista = new ArrayList<ModeloFilme>();
+        ModeloFilme f;
+        try {
+            conecta.conecta();
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conecta.getConexao().prepareStatement(LISTARFILMES);
+            ResultSet rs = prepararInstrucao.executeQuery();
+            while(rs.next()){
+                f = new ModeloFilme(rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
+                lista.add(f);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return lista;
     }
 }

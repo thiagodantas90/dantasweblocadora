@@ -1,5 +1,6 @@
 package com.dantas.locadora;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 
 /*
@@ -18,6 +19,7 @@ public class GerenciarFilmes {
     private String data_lancamento;
     private int nota;
     private int quantidade;
+    private ArrayList<ModeloFilme> listaDeFilmes;
     
     private ModeloFilme f;
     private FilmeDAO novo = new FilmeDAO();
@@ -28,6 +30,10 @@ public class GerenciarFilmes {
     }
     public String cancelar(){
         return "cancelar";
+    }
+    
+    public void listarFilmes(){
+        listaDeFilmes = novo.consultar();
     }
 
     public String getTitulo() {
@@ -69,4 +75,13 @@ public class GerenciarFilmes {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    public ArrayList<ModeloFilme> getListaDeFilmes() {
+        return listaDeFilmes;
+    }
+
+    public void setListaDeFilmes(ArrayList<ModeloFilme> listaDeFilmes) {
+        this.listaDeFilmes = listaDeFilmes;
+    }
+    
 }
