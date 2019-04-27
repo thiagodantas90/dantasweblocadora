@@ -20,19 +20,20 @@ and open the template in the editor.
             
             <h:message for="titulo"/><br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/mm/AAAA"/>
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/mm/AAAA">
              <f:convertDateTime pattern="dd/MM/yyyy" />
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
-                Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 9" <p:inputMask mask="9?99"/>
-            <f:validateRegex pattern="\(\d\)"/>
-              </h:inputText>
+                Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 9">
+                <p:inputMask mask="9?99"/>
+                <f:validateRegex pattern="\(\d\)"/>
+                </h:inputText>
 		<h:message for="nota"/><br/>
                 
             Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}"/><br/>
             
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros"/>
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros">
                <p:inputMask mask="9?999"/>
                <f:validateRegex pattern="(\d)"/>
             </h:inputText>
