@@ -22,8 +22,9 @@ public class GerenciarFilmes {
     private ModeloFilme f;
     private FilmeDAO novo = new FilmeDAO();
     
-    public void cadastrarFilme(){
+    public String cadastrarFilme(){
         novo.cadastrar(f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade));
+        return "cadastrado";
     }
     public String cancelar(){
         return "cancelar";
