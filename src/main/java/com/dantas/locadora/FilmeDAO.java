@@ -43,15 +43,14 @@ public class FilmeDAO {
     }
     public ArrayList<ModeloFilme> consultar(){
         ArrayList<ModeloFilme> lista = new ArrayList<ModeloFilme>();
-        ModeloFilme f;
-        
+                
         try {
             conecta.conecta();
             PreparedStatement prepararInstrucao;
             prepararInstrucao = conecta.getConexao().prepareStatement(LISTARFILMES);
             ResultSet rs = prepararInstrucao.executeQuery();
             while(rs.next()){
-                f = new ModeloFilme(rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
+                ModeloFilme f = new ModeloFilme(rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
                 lista.add(f);
             }
             conecta.desconecta();

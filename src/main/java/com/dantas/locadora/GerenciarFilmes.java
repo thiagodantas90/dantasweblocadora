@@ -33,8 +33,8 @@ public class GerenciarFilmes {
         return "cancelar";
     }
     
-    public void listarFilmes(){
-        listaDeFilmes = novo.consultar();
+    public ArrayList<ModeloFilme> listarFilmes(){
+        return novo.consultar();
     }
 
     public String getTitulo() {
