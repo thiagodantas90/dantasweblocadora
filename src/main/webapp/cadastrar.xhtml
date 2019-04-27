@@ -21,8 +21,7 @@ and open the template in the editor.
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="A data não pode ser vazio.">
-                <f:convertDateTime pattern="dd/MM/yyyy"/>
-<!--                <f:convertDateTime dateStyle="dd/MM/yyyy" pattern="dd/MM/yyyy"/>-->
+<!--                <f:convertDateTime pattern="dd/MM/yyyy"/>-->
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
@@ -39,7 +38,7 @@ and open the template in the editor.
             
             Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros" >
               <f:validateLength minimum="1"/>
-<!--               <f:validateRegex pattern="([1-9]+)"/>-->
+              <f:validateRegex pattern="([1-9])"/>
             </h:inputText>
             <h:message for="quantidade"/>
             <br/>
