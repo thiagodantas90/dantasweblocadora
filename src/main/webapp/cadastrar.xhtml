@@ -21,7 +21,7 @@ and open the template in the editor.
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="A data não pode ser vazio.">
-<!--                <f:convertDateTime pattern="dd/MM/yyyy"/>-->
+<!--            <f:convertDateTime pattern="dd/MM/yyyy"/>-->
                 </h:inputText>
             <h:message for="dataLancamento"/>
                 <h:message for="dataLancamento"/><br/>
@@ -30,7 +30,7 @@ and open the template in the editor.
                 <f:validateRegex pattern="([1-5])"/>
                 </h:inputText>
                 <h:message for="nota"/><br/>
-                <h:message for="nota"
+             
                 
             Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" validatorMessage="O descrição maior que 10 caracteres." required="true" requiredMessage="A descrição não pode ser vazio.">
                 <f:validateLength minimum="10"/>
@@ -38,12 +38,12 @@ and open the template in the editor.
                 <h:message for="descricao"/>
             <br/>
             
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros"  required="true" requiredMessage="Digite apenas letras">
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros" >
               <f:validateLength minimum="1"/>
               <f:validateRegex pattern="([1-9])"/>
             </h:inputText>
             <h:message for="quantidade"/>
-            <h:message for="quantidade"/>
+            
             <br/>
             
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Confirmar"/><br/>
