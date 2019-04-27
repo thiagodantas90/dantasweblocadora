@@ -1,34 +1,30 @@
-package com.dantas.locadora;
-
-import javax.faces.bean.ManagedBean;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.dantas.locadora;
 
 /**
  *
  * @author Thiago
  */
-@ManagedBean
-public class GerenciarFilmes {
+public class ModeloFilme {
     private String titulo, descricao;
     private String data_lancamento;
     private int nota;
     private int quantidade;
-    
-    private ModeloFilme f;
-    private FilmeDAO novo = new FilmeDAO();
-    
-    public void cadastrarFilme(){
-        novo.cadastrar(f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade));
-    }
-    public String cancelar(){
-        return "cancelar";
-    }
 
+    public ModeloFilme(String titulo, String decricao, String data_lancamento, int nota, int quantidade) {
+        this.titulo = titulo;
+        this.descricao = decricao;
+        this.data_lancamento = data_lancamento;
+        this.nota = nota;
+        this.quantidade = quantidade;
+    }
+    public ModeloFilme(){
+        
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -41,8 +37,8 @@ public class GerenciarFilmes {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricao(String decricao) {
+        this.descricao = decricao;
     }
 
     public String getData_lancamento() {
