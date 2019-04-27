@@ -21,11 +21,12 @@ public class GerenciarFilmes {
     private int quantidade;
     private ArrayList<ModeloFilme> listaDeFilmes;
     
-    private ModeloFilme f;
+    public ModeloFilme f;
     private FilmeDAO novo = new FilmeDAO();
     
     public String cadastrarFilme(){
-        novo.cadastrar(f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade));
+        f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade);
+        novo.cadastrar(f);
         return "cadastrado";
     }
     public String cancelar(){

@@ -44,6 +44,7 @@ public class FilmeDAO {
     public ArrayList<ModeloFilme> consultar(){
         ArrayList<ModeloFilme> lista = new ArrayList<ModeloFilme>();
         ModeloFilme f;
+        
         try {
             conecta.conecta();
             PreparedStatement prepararInstrucao;
@@ -53,6 +54,7 @@ public class FilmeDAO {
                 f = new ModeloFilme(rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
                 lista.add(f);
             }
+            conecta.desconecta();
         } catch (SQLException ex) {
             Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }  

@@ -36,8 +36,8 @@ public class Banco {
             Class.forName(DRIVER); //Carrega o driver (inicializa um objeto da classe org.postgresql.Driver) 
             conexao = DriverManager.getConnection(URL, USERNAME, PASSWORD); //Cria a conexao
             System.out.println("Banco conectado");
-            Statement stmt = conexao.createStatement();
-            stmt.execute(SCRIPT);
+            //Statement stmt = conexao.createStatement();
+            //stmt.execute(SCRIPT);
         } catch (Exception e) {
            
         }
