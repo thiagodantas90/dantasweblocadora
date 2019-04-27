@@ -26,6 +26,7 @@ and open the template in the editor.
                 <h:message for="dataLancamento"/><br/>
                 
             Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5">
+                <f:validateLength minimum="1"/>
                 <f:validateRegex pattern="([1-5])"/>
                 </h:inputText>
                 <h:message for="nota"/><br/>
