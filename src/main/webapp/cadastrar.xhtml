@@ -20,15 +20,15 @@ and open the template in the editor.
             <h:message for="titulo"/>
             <br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy">
-             <!--<f:convertDateTime pattern="dd/MM/yyyy" />-->
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/MM/yyyy" required="true" requiredMessage="O título não pode ser vazio.">
+             <f:convertDateTime pattern="dd/MM/yyyy" />
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5">
-<!--                <f:validateRegex pattern="([1-5]+)"/>-->
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 5" required="true" requiredMessage="A nota não pode ser vazio.">
+<!--            <f:validateRegex pattern="([1-5]+)"/>-->
                 </h:inputText>
-		<h:message for="nota"/><br/>
+                <h:message for="nota"/><br/>
                 
             Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" requiredMessage="O descrição maior que 10 caracteres.">
                 <f:validateLength minimum="10"/>
@@ -36,7 +36,7 @@ and open the template in the editor.
                 <h:message for="descricao"/>
             <br/>
             
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros">
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros" required="true" requiredMessage="O quantidade não pode ser vazio.">
               <f:validateLength minimum="1"/>
 <!--               <f:validateRegex pattern="([1-9]+)"/>-->
             </h:inputText>
