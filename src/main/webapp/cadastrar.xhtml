@@ -25,9 +25,9 @@ and open the template in the editor.
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
                 
-                Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 1 e 9">
+                Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}" validatorMessage="Nota deve ser 0 e 9">
                 
-                <f:validateRegex pattern="\(\d\)"/>
+                <f:validateRegex pattern="([0-9]*)"/>
                 </h:inputText>
 		<h:message for="nota"/><br/>
                 
@@ -35,7 +35,7 @@ and open the template in the editor.
             
             Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros">
               
-               <f:validateRegex pattern="(\d)"/>
+               <f:validateRegex pattern="([0-9]+)"/>
             </h:inputText>
             <br/>
             
