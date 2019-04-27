@@ -17,9 +17,10 @@ and open the template in the editor.
         <h1>Cadastro de Filme</h1>
         <h:form>
             Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}" required="true" requiredMessage="O título não pode ser vazio."/>
+            
             <h:message for="titulo"/><br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/mm/AAAA"
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" converterMessage="Data fora do formato dd/mm/AAAA"/>
              <f:convertDateTime pattern="dd/MM/yyyy" />
                 </h:inputText>
                 <h:message for="dataLancamento"/><br/>
@@ -30,11 +31,13 @@ and open the template in the editor.
 		<h:message for="nota"/><br/>
                 
             Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}"/><br/>
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros"
+            
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" validatorMessage="Digite apenas numeros"/>
                <p:inputMask mask="9?999"/>
                <f:validateRegex pattern="(\d)"/>
             </h:inputText>
             <br/>
+            
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Confirmar"/><br/>
             <h:commandButton action="#{gerenciarFilmes.cancelar()}" value="Cancelar" />
         </h:form>
