@@ -54,8 +54,8 @@ and open the template in the editor.
             <h:message id="m5" for="dataLancamento"/>
             <br/>
             
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}" required="true" requiredMessage="Nota não pode ser vazio" validatorMessage="Nota deve ser entre 0 e 5">
-                <f:validateDoubleRange  minimum="1" maximum="5"/>
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}" required="true" requiredMessage="Nota não pode ser vazio" validatorMessage="Nota deve ser entre 1 e 5">
+            <f:validateDoubleRange  minimum="1" maximum="5"/>
             <f:convertNumber integerOnly="true"/>
             <f:convertNumber maxIntegerDigits="1"/>
             </h:inputText>
@@ -69,8 +69,8 @@ and open the template in the editor.
             <br/>
             
             Quantidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.filmeAtual.quantidade}" required="true" requiredMessage="Quantidade não pode ser vazio" validatorMessage="Apenas numeros maior que 1">
+            <f:validateDoubleRange  minimum="1" maximum="1000"/>
             <f:convertNumber integerOnly="true"/>
-            <f:convertNumber minIntegerDigits="1"/>
             </h:inputText>
             <h:message id="m4" for="quantidade"/>
             <br/>
