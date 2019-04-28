@@ -22,7 +22,7 @@ public class GerenciarFilmes {
     private int nota;
     private int quantidade;
     private ArrayList<ModeloFilme> listaDeFilmes;
-    private ArrayList<ModeloFilme> cesta;
+    private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     
     public ModeloFilme f;
     private FilmeDAO novo = new FilmeDAO();
@@ -38,6 +38,7 @@ public class GerenciarFilmes {
     
     public void adicionarCesta(ModeloFilme fi){
         cesta.add(fi);
+        //novo.alterarQuantidades(fi);
     }
     public void remover(ModeloFilme ce){
         if(cesta.contains(ce)){
@@ -45,7 +46,7 @@ public class GerenciarFilmes {
         }
     }
     public String finalizar(){
-        novo.alterarQuantidades(cesta);
+        
         return "listaFilmes";
     }
     public ArrayList<ModeloFilme> listarFilmes(){
