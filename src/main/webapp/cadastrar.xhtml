@@ -50,7 +50,9 @@ and open the template in the editor.
             <h:message id="m1" for="titulo"/>
             <br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}" required="true" requiredMessage="Nota não pode ser vazio"/>        
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}" required="true" requiredMessage="Nota não pode ser vazio" validator="A data tem que ser no formato '01/01/2000'">
+            <f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:inputText>
             <h:message id="m5" for="dataLancamento"/>
             <br/>
             
@@ -68,7 +70,7 @@ and open the template in the editor.
             <h:message id="m2" for="descricao"/> 
             <br/>
             
-            Quantidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.filmeAtual.quantidade}" required="true" requiredMessage="Quantidade não pode ser vazio" validatorMessage="Apenas numeros maior que 1" converterMessage="Insira apenas Numeros">
+            Quantidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.filmeAtual.quantidade}" required="true" requiredMessage="Quantidade não pode ser vazio" validatorMessage="Apenas numeros maior que 1" converterMessage="Insira apenas numeros">
             <f:validateDoubleRange  minimum="1" maximum="1000"/>
             <f:convertNumber integerOnly="true"/>
             </h:inputText>
