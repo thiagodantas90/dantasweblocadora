@@ -21,7 +21,7 @@ public class FilmeDAO {
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, DATA_LANCAMENTO, NOTA, DESCRICAO, QUANTIDADE) VALUES (?,?,?,?,?)";
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
-    private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?, DATA_LANCAMNTO = ?, NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? WHERE ID_FILMES = ?";
+    private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?, DATA_LANCAMENTO = ?, NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? WHERE ID_FILMES = ?";
     
   
     public void cadastrar(ModeloFilme f1) {
