@@ -41,7 +41,7 @@ public class GerenciarFilmes {
         this.filmeAtual = fi;
     }
     public void salvar(){
-        
+        novo.atualizar(filmeAtual);
     }
     public String cancelar(){
         return "cancelar";

@@ -21,6 +21,7 @@ public class FilmeDAO {
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, DATA_LANCAMENTO, NOTA, DESCRICAO, QUANTIDADE) VALUES (?,?,?,?,?)";
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
+    private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?, DATA_LANCAMNTO = ?, NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? WHERE ID_FILMES = ?";
     
   
     public void cadastrar(ModeloFilme f1) {
@@ -76,7 +77,24 @@ public class FilmeDAO {
         }
     }
 
-    void atualizar(ModeloFilme f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void atualizar(ModeloFilme fi) {
+      
+        try {
+            conecta.conecta();
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conecta.getConexao().prepareStatement(ATUALZARFILME);
+            
+            prepararInstrucao.setString(1, fi.getTitulo());
+            prepararInstrucao.setString(2, fi.getData_lancamento());
+            prepararInstrucao.setInt(3, fi.getNota());
+            prepararInstrucao.setString(4, fi.getDescricao());
+            prepararInstrucao.setInt(5, fi.getQuantidade());
+            prepararInstrucao.setInt(6, fi.getId());
+            prepararInstrucao.executeUpdate();
+            
+            conecta.desconecta();
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
