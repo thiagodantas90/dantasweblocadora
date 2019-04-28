@@ -13,7 +13,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <h:commandLink action="listaFilmes" value="Catálago"/>
-        <h:commandLink action="cadastrar" value="Cadastrar" />      
+        <h:form>
+            Acessar o catálago:<h:commandButton action="listaFilmes" value="Catálago"/><br/>
+            Acessar a pagina de cadastro:<h:commandButton action="cadastrar" value="Cadastrar" />  
+        </h:form>
+           
     </h:body>
 </html>
