@@ -16,7 +16,7 @@ and open the template in the editor.
     <body>
         <h:form>
             <h1>Sua cesta de Pedido</h1>
-            <h:dataTable value="#{gerenciarFilmes.cesta}" var="ce">
+            <h:dataTable value="#{gerenciarFilmes.verCesta()}" var="ce">
                 <h:column>
                     <f:facet id="titulo" name="header">Título</f:facet>
                     #{ce.titulo}

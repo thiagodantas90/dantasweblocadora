@@ -45,8 +45,10 @@ public class GerenciarFilmes {
             cesta.remove(ce);
         }
     }
+    public ArrayList<ModeloFilme> verCesta(){
+        return cesta;
+    }
     public String finalizar(){
-        
         return "listaFilmes";
     }
     public ArrayList<ModeloFilme> listarFilmes(){
