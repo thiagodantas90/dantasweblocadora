@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
 import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.SessionScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,13 +19,17 @@ import javax.faces.bean.ApplicationScoped;
  * @author Thiago
  */
 @ManagedBean
-@ApplicationScoped
+//@ApplicationScoped
+@SessionScoped
 public class GerenciarFilmes {
     private int id;
     private String titulo, descricao;
     private String data_lancamento;
     private int nota;
     private int quantidade;
+    private double totalcompra = 0;
+    private int tamanho;
+    
     private ModeloFilme filmeAtual;
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
@@ -41,7 +46,6 @@ public class GerenciarFilmes {
         }else{
             return "jacadastrado";
         }
-        
     }
     public void editar(ModeloFilme fi){
         this.filmeAtual = fi;
@@ -55,19 +59,31 @@ public class GerenciarFilmes {
     }
     
     public void adicionarCesta(ModeloFilme fi){
-        cesta.add(fi);
-        DAO.alterarQuantidades(fi);
+            cesta.add(fi);
+            DAO.alterarQuantidades(fi);         
     }
     public void remover(ModeloFilme ce){
         if(cesta.contains(ce)){
+            DAO.devolverItem(ce);
             cesta.remove(ce);
         }
+    }
+    public void removerCesta(){
+        for(int i=0;i<tamanho;i++){
+            DAO.devolverItem(cesta.get(i));
+        }
+        cesta.clear();
     }
     public ArrayList<ModeloFilme> verCesta(){
         return cesta;
     }
     public String finalizar(){
-        return "listaFilmes";
+        calcularPreco();
+        cesta.clear();
+        return "totalCompra";
+    }
+    private void calcularPreco(){
+        totalcompra = 4.5 * cesta.size();
     }
     public ArrayList<ModeloFilme> listarFilmes(){
         return DAO.consultar();
@@ -143,6 +159,22 @@ public class GerenciarFilmes {
 
     public void setFilmeAtual(ModeloFilme filmeAtual) {
         this.filmeAtual = filmeAtual;
+    }
+
+    public double getTotalcompra() {
+        return totalcompra;
+    }
+
+    public void setTotalcompra(double totalcompra) {
+        this.totalcompra = totalcompra;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
     }
     
 }

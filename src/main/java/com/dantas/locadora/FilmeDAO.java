@@ -21,6 +21,7 @@ public class FilmeDAO {
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, DATA_LANCAMENTO, NOTA, DESCRICAO, QUANTIDADE) VALUES (?,?,?,?,?)";
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
+    private final String DEVOLVERITEM = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE + 1 WHERE ID_FILMES = (?)";
     private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?, DATA_LANCAMENTO = ?, NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? WHERE ID_FILMES = ?";
     private final String LISTARIDS = "SELECT ID_FILMES FROM FILMES";
   
@@ -63,7 +64,7 @@ public class FilmeDAO {
     }
 
     public void alterarQuantidades(ModeloFilme fi) {
-          try {
+        try {
             conecta.conecta();
             PreparedStatement prepararInstrucao;
             prepararInstrucao = conecta.getConexao().prepareStatement(ALTERARQUANTIDADE);
@@ -119,5 +120,20 @@ public class FilmeDAO {
         }
                 
         return lista;
+    }
+
+    void devolverItem(ModeloFilme ce) {
+         try {
+            conecta.conecta();
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conecta.getConexao().prepareStatement(DEVOLVERITEM);
+            prepararInstrucao.setInt(1, ce.getId());
+
+            prepararInstrucao.execute();
+  
+            conecta.desconecta();
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
