@@ -25,32 +25,19 @@ import javax.faces.bean.SessionScoped;
 //@ApplicationScoped
 @SessionScoped
 public class GerenciarFilmes {
-    private Date data_formatada;
-    private int id;
+    private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
     private String data_lancamento;
-    private int nota;
-    private int quantidade;
     private double totalcompra = 0;
-    private int tamanho;
-    
-    
+      
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
-    
     private FilmeDAO DAO = new FilmeDAO();
-
    
     public String cadastrarFilme(){
-        data_formatada = null;
-        try {
-            data_formatada = new SimpleDateFormat("dd/MM/yyyy").parse("00/00/0000");
-        } catch (ParseException ex) {
-            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        filmeAtual.setData_lancamento(String.valueOf(data_formatada));
+       
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
@@ -115,14 +102,6 @@ public class GerenciarFilmes {
     }
     // get e set
 
-    public Date getData_formatada() {
-        return data_formatada;
-    }
-
-    public void setData_formatada(Date data_formatada) {
-        this.data_formatada = data_formatada;
-    }
-    
     public ArrayList<ModeloFilme> getCesta() {
         return cesta;
     }
