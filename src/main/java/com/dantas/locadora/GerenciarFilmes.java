@@ -35,7 +35,7 @@ public class GerenciarFilmes {
     public String cadastrarFilme(){
         
         novo.cadastrar(filmeAtual);
-        return "cadastrado";
+        return "Cadastrado Com Sucesso";
     }
     public void editar(ModeloFilme fi){
         this.filmeAtual = fi;
@@ -43,8 +43,9 @@ public class GerenciarFilmes {
     public void salvar(){
         novo.atualizar(filmeAtual);
     }
-    public String cancelar(){
-        return "cancelar";
+    public void cancelar(){
+        filmeAtual = new ModeloFilme();
+        //return "cancelar";
     }
     
     public void adicionarCesta(ModeloFilme fi){
