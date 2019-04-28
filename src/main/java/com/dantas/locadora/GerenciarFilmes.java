@@ -170,7 +170,7 @@ public class GerenciarFilmes {
     }
 
     public int getTamanho() {
-        return tamanho;
+        return tamanho = cesta.size();
     }
 
     public void setTamanho(int tamanho) {
