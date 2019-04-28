@@ -59,4 +59,8 @@ public class FilmeDAO {
         }  
         return lista;
     }
+
+    void alterarQuantidades(ArrayList<ModeloFilme> cesta) {
+        
+    }
 }

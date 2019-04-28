@@ -36,12 +36,28 @@ public class GerenciarFilmes {
         return "cancelar";
     }
     
-    public void adicionarCesta(String titulo){
-        //cesta.add();
+    public void adicionarCesta(ModeloFilme fi){
+        cesta.add(fi);
     }
-    
+    public void remover(ModeloFilme ce){
+        if(cesta.contains(ce)){
+            cesta.remove(ce);
+        }
+    }
+    public String finalizar(){
+        novo.alterarQuantidades(cesta);
+        return "listaFilmes";
+    }
     public ArrayList<ModeloFilme> listarFilmes(){
         return novo.consultar();
+    }
+
+    public ArrayList<ModeloFilme> getCesta() {
+        return cesta;
+    }
+
+    public void setCesta(ArrayList<ModeloFilme> cesta) {
+        this.cesta = cesta;
     }
 
     public String getTitulo() {
