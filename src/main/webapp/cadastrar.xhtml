@@ -54,7 +54,7 @@ and open the template in the editor.
             <br/>
             
             Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}" validatorMessage="Nota não poder 0 ou maior que 5">
-            <f:validateDoubleRange  maximum="1"/>
+            <f:validateDoubleRange  maximum="1" #{nota le 1 or nota ge 5}/>
             </h:inputText>
             <h:message id="m3" for="nota"/>
             <br/>                  
