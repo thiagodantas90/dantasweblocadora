@@ -1,10 +1,13 @@
 package com.dantas.locadora;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.SessionScoped;
 
@@ -22,8 +25,9 @@ import javax.faces.bean.SessionScoped;
 //@ApplicationScoped
 @SessionScoped
 public class GerenciarFilmes {
-    private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
     
+    
+    private Date data_formatada;
     private int id;
     private String titulo, descricao;
     private String data_lancamento;
@@ -31,7 +35,7 @@ public class GerenciarFilmes {
     private int quantidade;
     private double totalcompra = 0;
     private int tamanho;
-    private Date data = new Date(00/00/0000);
+    
     
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
@@ -39,9 +43,18 @@ public class GerenciarFilmes {
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     
     private FilmeDAO DAO = new FilmeDAO();
-    
-    public String cadastrarFilme(){
-        filmeAtual.setData_lancamento(format.format(data));
+
+    private GerenciarFilmes() {
+        String texto = "00/00/0000";  
+        String formato = "dd/MM/yyyy"; 
+        try {
+            this.data_formatada = new SimpleDateFormat(formato).parse(texto);
+        } catch (ParseException ex) {
+            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     public String cadastrarFilme(){
+        filmeAtual.setData_lancamento(String.valueOf(data_formatada));
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
@@ -104,7 +117,16 @@ public class GerenciarFilmes {
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
     }
+    // get e set
 
+    public Date getData_formatada() {
+        return data_formatada;
+    }
+
+    public void setData_formatada(Date data_formatada) {
+        this.data_formatada = data_formatada;
+    }
+    
     public ArrayList<ModeloFilme> getCesta() {
         return cesta;
     }
@@ -192,13 +214,5 @@ public class GerenciarFilmes {
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-    
+  
 }
