@@ -42,8 +42,8 @@ and open the template in the editor.
                     <h:commandButton action="#{gerenciarFilmes.remover(ce)}" value="Remover" />
                 </h:column>                             
             </h:dataTable>
-            <h:commandButton action="#{gerenciarFilmes.limparCesta()}" value="Limparcesta" disabled="#{gerenciarFilmes.cesta == 0}"/>
-            <h:commandButton action="#{gerenciarFilmes.finalizar()}" value="Finalizar" disabled="#{gerenciarFilmes.cesta == 0}"/>
+            <h:commandButton action="#{gerenciarFilmes.limparCesta()}" value="Limparcesta" disabled="#{gerenciarFilmes.cesta.size() == 0}"/>
+            <h:commandButton action="#{gerenciarFilmes.finalizar()}" value="Finalizar" disabled="#{gerenciarFilmes.cesta.size() == 0}"/>
         </h:form>
     </h:body>
 </html>
