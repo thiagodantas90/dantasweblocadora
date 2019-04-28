@@ -51,9 +51,14 @@ and open the template in the editor.
             <br/>
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}"/>        
             <br/>    
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}"/>
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}">
+            
+            </h:inputText>
             <br/>                        
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" />
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" validatorMessage="Descrição com num minimo 10 caracteres">
+            <f:validateLength minimum="10"/>
+            </h:inputText>
+            <h:message id="m2" for="descricao"/> 
             <br/>
             
             Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.filmeAtual.quantidade}" />
