@@ -69,7 +69,7 @@ public class GerenciarFilmes {
         }
     }
     public void limparCesta(){
-        for(int i=0;i<tamanho;i++){
+        for(int i=0;i<cesta.size();i++){
             DAO.devolverItem(cesta.get(i));
         }
         cesta.clear();
@@ -79,7 +79,7 @@ public class GerenciarFilmes {
     }
     public String finalizar(){
         calcularPreco();
-        tamanho = cesta.size();
+        atriTamanho();
         cesta.clear();
         return "totalCompra";
     }
@@ -171,11 +171,15 @@ public class GerenciarFilmes {
     }
 
     public int getTamanho() {
-        return tamanho = cesta.size();
+        return tamanho;
     }
 
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
+    }
+
+    private void atriTamanho() {
+        tamanho = cesta.size();
     }
     
 }
