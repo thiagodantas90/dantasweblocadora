@@ -55,7 +55,7 @@ and open the template in the editor.
             
             </h:inputText>
             <br/>                        
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" validatorMessage="Descrição com num minimo 10 caracteres">
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" required="true" requiredMessage="A descrição não pode ser vazio.">
             <f:validateLength minimum="10"/>
             </h:inputText>
             <h:message id="m2" for="descricao"/> 
