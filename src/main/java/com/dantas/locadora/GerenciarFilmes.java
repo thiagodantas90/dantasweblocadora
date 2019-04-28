@@ -42,20 +42,22 @@ public class GerenciarFilmes {
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
+            limparCampos();
             return "cadastrado";
         }else{
             return "jacadastrado";
         }
+        
     }
     public void editar(ModeloFilme fi){
         this.filmeAtual = fi;
     }
     public void salvar(){
         DAO.atualizar(filmeAtual);
+        limparCampos();
     }
     public void cancelar(){
-        filmeAtual = new ModeloFilme();
-        //return "cancelar";
+        limparCampos();
     }
     
     public void adicionarCesta(ModeloFilme fi){
@@ -182,6 +184,10 @@ public class GerenciarFilmes {
 
     private void atriTamanho() {
         tamanho = cesta.size();
+    }
+
+    private void limparCampos() {
+        filmeAtual = new ModeloFilme();
     }
     
 }
