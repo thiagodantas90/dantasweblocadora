@@ -60,12 +60,14 @@ public class GerenciarFilmes {
     
     public void adicionarCesta(ModeloFilme fi){
             cesta.add(fi);
+            atriTamanho();
             DAO.alterarQuantidades(fi);         
     }
     public void remover(ModeloFilme ce){
         if(cesta.contains(ce)){
             DAO.devolverItem(ce);
             cesta.remove(ce);
+            atriTamanho();
         }
     }
     public void limparCesta(){
