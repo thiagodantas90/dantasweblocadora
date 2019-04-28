@@ -12,12 +12,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <h1>Preço por Unidade: R$ 4,50</h1>
-        <h1>Finalização</h1>
-            Quantidade de itens: <h:outputText value="#{gerenciarFilmes.tamanho}" title="Quantidade de Itens na Cesta"/>
-            <h1>Total da Compra:<h:outputText value="#{gerenciarFilmes.totalcompra}"/></h1>
-        
         <h:form>
+            <h1>Preço por Unidade: R$ 4,50</h1>
+            <h1>Finalização</h1>
+            <h1>Total da Compra:<h:outputText value="#{gerenciarFilmes.totalcompra}"/></h1><br/>
+            Total de itens: <h:outputText value="#{gerenciarFilmes.tamanho}"/><br/>
             <h:commandButton action="listaFilmes" value="Catálogo de Filmes" />
         </h:form>
         
