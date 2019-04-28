@@ -66,8 +66,7 @@ public class FilmeDAO {
             conecta.conecta();
             PreparedStatement prepararInstrucao;
             prepararInstrucao = conecta.getConexao().prepareStatement(ALTERARQUANTIDADE);
-            prepararInstrucao.setInt(1, fi.getQuantidade());
-            prepararInstrucao.setInt(2, fi.getId());
+            prepararInstrucao.setInt(1, fi.getId());
 
             prepararInstrucao.execute();
   
