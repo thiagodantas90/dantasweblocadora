@@ -79,6 +79,7 @@ public class GerenciarFilmes {
     }
     public String finalizar(){
         calcularPreco();
+        tamanho = cesta.size();
         cesta.clear();
         return "totalCompra";
     }

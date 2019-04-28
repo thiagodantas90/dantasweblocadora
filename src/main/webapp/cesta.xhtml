@@ -43,7 +43,7 @@ and open the template in the editor.
                 </h:column>                             
             </h:dataTable>
             
-            Total de itens: <h:outputText value="#{gerenciarFilmes.tamanho}"/>
+            <h3>Total de itens: <h:outputText value="#{gerenciarFilmes.tamanho}"/></h3><br/>
             <h:commandButton action="#{gerenciarFilmes.limparCesta()}" value="Limparcesta" disabled="#{gerenciarFilmes.cesta.size()le 0}"/>
             <h:commandButton action="#{gerenciarFilmes.finalizar()}" value="Finalizar" disabled="#{gerenciarFilmes.cesta.size() le 0}"/>
             <h:commandButton action="listaFilmes" value="Catálago"/>
