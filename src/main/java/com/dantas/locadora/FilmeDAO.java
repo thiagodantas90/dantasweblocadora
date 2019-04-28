@@ -32,7 +32,7 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(CADASTRARFILME);
             
             prepararInstrucao.setString(1, f1.getTitulo());
-            prepararInstrucao.setString(2, f1.getData_lancamento());
+            prepararInstrucao.setDate(2, f1.getData_lancamento());
             prepararInstrucao.setInt(3, f1.getNota());
             prepararInstrucao.setString(4, f1.getDescricao());
             prepararInstrucao.setInt(5, f1.getQuantidade());
@@ -53,7 +53,7 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(LISTARFILMES);
             ResultSet rs = prepararInstrucao.executeQuery();
             while(rs.next()){
-                ModeloFilme f = new ModeloFilme(rs.getInt("ID_FILMES"),rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
+                ModeloFilme f = new ModeloFilme(rs.getInt("ID_FILMES"),rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getDate("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
                 lista.add(f);
             }
             conecta.desconecta();
@@ -86,7 +86,7 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(ATUALZARFILME);
             
             prepararInstrucao.setString(1, fi.getTitulo());
-            prepararInstrucao.setString(2, fi.getData_lancamento());
+            prepararInstrucao.setDate(2, fi.getData_lancamento());
             prepararInstrucao.setInt(3, fi.getNota());
             prepararInstrucao.setString(4, fi.getDescricao());
             prepararInstrucao.setInt(5, fi.getQuantidade());

@@ -5,6 +5,8 @@
  */
 package com.dantas.locadora;
 
+import java.sql.Date;
+
 /**
  *
  * @author Thiago
@@ -12,11 +14,11 @@ package com.dantas.locadora;
 public class ModeloFilme {
     int id;
     private String titulo, descricao;
-    private String data_lancamento;
+    private Date data_lancamento;
     private int nota;
     private int quantidade;
 
-    public ModeloFilme(int id, String titulo, String descricao, String data_lancamento, int nota, int quantidade) {
+    public ModeloFilme(int id, String titulo, String descricao, Date data_lancamento, int nota, int quantidade) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -24,7 +26,7 @@ public class ModeloFilme {
         this.nota = nota;
         this.quantidade = quantidade;
     }
-    public ModeloFilme( String titulo, String descricao, String data_lancamento, int nota, int quantidade) {
+    public ModeloFilme( String titulo, String descricao, Date data_lancamento, int nota, int quantidade) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.data_lancamento = data_lancamento;
@@ -59,11 +61,11 @@ public class ModeloFilme {
         this.descricao = decricao;
     }
 
-    public String getData_lancamento() {
+    public Date getData_lancamento() {
         return data_lancamento;
     }
 
-    public void setData_lancamento(String data_lancamento) {
+    public void setData_lancamento(Date data_lancamento) {
         this.data_lancamento = data_lancamento;
     }
 
