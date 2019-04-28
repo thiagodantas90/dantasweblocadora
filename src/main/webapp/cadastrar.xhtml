@@ -46,21 +46,23 @@ and open the template in the editor.
             <br/>-->
             
         <!--Teste -->
-            Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.titulo}"/>
+        Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.filmeAtual.titulo}"/>
             <br/>
             
-            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}"/>        
+            Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}"/>        
             <br/>    
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.nota}"/>
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}"/>
             <br/>                        
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.descricao}" />
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" />
             <br/>
             
-            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.quantidade}" />
+            Quntidade:<h:inputText id="quantidade" value="#{gerenciarFilmes.filmeAtual.quantidade}" />
             <br/>
             
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Confirmar"/><br/>
             <h:commandButton action="#{gerenciarFilmes.cancelar()}" value="Cancelar" />
+            <h:commandButton action="#{gerenciarFilmes.salvar()}" value="Salvar" />
+            
         </h:form>
         <!--divisão-->
         <h:form>
@@ -90,6 +92,11 @@ and open the template in the editor.
                     <f:facet name="header">Quantidade</f:facet>
                     #{fi.quantidade}
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <h:commandButton action="#{gerenciarFilmes.editar(fi)}" value="Editar" />
+                </h:column>
+
             </h:dataTable>
         </h:form>
         

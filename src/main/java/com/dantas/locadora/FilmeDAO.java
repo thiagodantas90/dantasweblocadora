@@ -75,4 +75,8 @@ public class FilmeDAO {
             Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    void atualizar(ModeloFilme f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
