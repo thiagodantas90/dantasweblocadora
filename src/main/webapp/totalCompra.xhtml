@@ -14,10 +14,8 @@ and open the template in the editor.
     <h:body>
         <h1>Preço por Unidade: R$ 4,50</h1>
         <h1>Finalização</h1>
-        <h:form>
-            Quantidade de itens:<h:outputText value="#{gerenciarFilmes.tamanho}"/>
+            Quantidade de itens: <h:outputText value="#{gerenciarFilmes.tamanho}" title="Quantidade de Itens na Cesta"/>
             <h1>Total da Compra:<h:outputText value="#{gerenciarFilmes.totalcompra}"/></h1>
-        </h:form>
         
         <h:form>
             <h:commandButton action="listaFilmes" value="Catálogo de Filmes" />
