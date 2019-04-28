@@ -25,8 +25,6 @@ import javax.faces.bean.SessionScoped;
 //@ApplicationScoped
 @SessionScoped
 public class GerenciarFilmes {
-    
-    
     private Date data_formatada;
     private int id;
     private String titulo, descricao;
@@ -44,16 +42,14 @@ public class GerenciarFilmes {
     
     private FilmeDAO DAO = new FilmeDAO();
 
-    public GerenciarFilmes() {
-        String texto = "00/00/0000";  
-        String formato = "dd/MM/yyyy"; 
+   
+    public String cadastrarFilme(){
+        data_formatada = null;
         try {
-            this.data_formatada = new SimpleDateFormat(formato).parse(texto);
+            data_formatada = new SimpleDateFormat("dd/MM/yyyy").parse("00/00/0000");
         } catch (ParseException ex) {
             Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-     public String cadastrarFilme(){
         filmeAtual.setData_lancamento(String.valueOf(data_formatada));
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
