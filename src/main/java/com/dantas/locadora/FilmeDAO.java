@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class FilmeDAO {
     private Banco conecta = new Banco();
-    private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, NOTA, DESCRICAO, QUANTIDADE, DATA_LANCAMENTO,) VALUES (?,?,?,?,?)";
+    private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, NOTA, DESCRICAO, QUANTIDADE, DATA_LANCAMENTO) VALUES (?,?,?,?,?)";
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
     private final String DEVOLVERITEM = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE + 1 WHERE ID_FILMES = (?)";
