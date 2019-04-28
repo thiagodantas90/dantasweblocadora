@@ -20,11 +20,11 @@ import javax.faces.bean.ApplicationScoped;
 @ManagedBean
 @ApplicationScoped
 public class GerenciarFilmes {
-    private int id;
-    private String titulo, descricao;
-    private String data_lancamento;
-    private int nota;
-    private int quantidade;
+//    private int id;
+//    private String titulo, descricao;
+//    private String data_lancamento;
+//    private int nota;
+//    private int quantidade;
     private ModeloFilme filmeAtual;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
@@ -74,53 +74,53 @@ public class GerenciarFilmes {
         this.cesta = cesta;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getData_lancamento() {
-        return data_lancamento;
-    }
-
-    public void setData_lancamento(String data_lancamento) {
-        this.data_lancamento = data_lancamento;
-    }
-
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+//
+//    public String getTitulo() {
+//        return titulo;
+//    }
+//
+//    public void setTitulo(String titulo) {
+//        this.titulo = titulo;
+//    }
+//
+//    public String getDescricao() {
+//        return descricao;
+//    }
+//
+//    public void setDescricao(String descricao) {
+//        this.descricao = descricao;
+//    }
+//
+//    public String getData_lancamento() {
+//        return data_lancamento;
+//    }
+//
+//    public void setData_lancamento(String data_lancamento) {
+//        this.data_lancamento = data_lancamento;
+//    }
+//
+//    public int getNota() {
+//        return nota;
+//    }
+//
+//    public void setNota(int nota) {
+//        this.nota = nota;
+//    }
+//
+//    public int getQuantidade() {
+//        return quantidade;
+//    }
+//
+//    public void setQuantidade(int quantidade) {
+//        this.quantidade = quantidade;
+//    }
 
     public ArrayList<ModeloFilme> getListaDeFilmes() {
         return listaDeFilmes;
