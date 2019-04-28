@@ -13,14 +13,14 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h1>Preço por Unidade: R$ 4,50</h1>
-        <h1>Total da compra:</h1>
+        <h1>Finalização</h1>
         <h:form>
             Quantidade de itens:<h:outputText value="#{gerenciarFilmes.tamanho}"/>
-            Total da Compra:<h:outputText value="#{gerenciarFilmes.totalcompra}"/>
+            <h1>Total da Compra:<h:outputText value="#{gerenciarFilmes.totalcompra}"/></h1>
         </h:form>
         
         <h:form>
-        <h:commandLink action="listaFilmes" value="Catálogo de Filmes" />
+            <h:commandButton action="listaFilmes" value="Catálogo de Filmes" />
         </h:form>
         
     </h:body>
