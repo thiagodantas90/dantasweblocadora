@@ -44,7 +44,7 @@ public class GerenciarFilmes {
     
     private FilmeDAO DAO = new FilmeDAO();
 
-    private GerenciarFilmes() {
+    public GerenciarFilmes() {
         String texto = "00/00/0000";  
         String formato = "dd/MM/yyyy"; 
         try {
