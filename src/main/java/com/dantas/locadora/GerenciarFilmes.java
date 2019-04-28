@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
+import com.dantas.locadora.ModeloFilme;
+import javax.faces.bean.ApplicationScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,6 +18,7 @@ import javax.faces.bean.ManagedBean;
  * @author Thiago
  */
 @ManagedBean
+@ApplicationScoped
 public class GerenciarFilmes {
 //    private int id;
 //    private String titulo, descricao;
