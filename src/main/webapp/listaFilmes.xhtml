@@ -47,7 +47,7 @@ and open the template in the editor.
                     <h:commandButton action="#{gerenciarFilmes.adicionarCesta(fi)}" value="Adicionar" disabled="~#{fi.quantidade == 0}"/>
                 </h:column>
             </h:dataTable>
-            
+            <h3>Quantidade itens na cesta</h3>
             <h:outputText value="#{gerenciarFilmes.tamanho}" title="Quantidade de Itns na Cesta"/>
         </h:form>
         <h:form>

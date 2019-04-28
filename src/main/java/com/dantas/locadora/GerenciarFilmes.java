@@ -68,7 +68,7 @@ public class GerenciarFilmes {
             cesta.remove(ce);
         }
     }
-    public void removerCesta(){
+    public void limparCesta(){
         for(int i=0;i<tamanho;i++){
             DAO.devolverItem(cesta.get(i));
         }
