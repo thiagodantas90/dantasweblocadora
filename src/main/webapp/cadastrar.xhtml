@@ -54,7 +54,7 @@ and open the template in the editor.
             <h:message id="m5" for="dataLancamento"/>
             <br/>
             
-            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}" required="true" requiredMessage="Nota não pode ser vazio">
+            Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}" required="true" requiredMessage="Nota não pode ser vazio" validatorMessage="Nota deve ser entre 0 e 5">
             <f:validateDoubleRange  maximum="1"/>
             <f:convertNumber integerOnly="true"/>
             <f:convertNumber maxIntegerDigits="1"/>
