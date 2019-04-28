@@ -44,7 +44,7 @@ and open the template in the editor.
                 </h:column>
                 <h:column>
                     <f:facet name="header">Cesta</f:facet>
-                    <h:commandButton action="#{gerenciarFilmes.adicionarCesta(fi)}" value="Adicionar" disabled="#{fi.quantidade <1}"/>
+                    <h:commandButton action="#{gerenciarFilmes.adicionarCesta(fi)}" value="Adicionar" disabled="#{fi.quantidade le 0}"/>
                 </h:column>
             </h:dataTable>
             <h3>Quantidade itens na cesta</h3>
