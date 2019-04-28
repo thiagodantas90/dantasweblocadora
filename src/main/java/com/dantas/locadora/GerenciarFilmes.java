@@ -22,6 +22,8 @@ import javax.faces.bean.SessionScoped;
 //@ApplicationScoped
 @SessionScoped
 public class GerenciarFilmes {
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    
     private int id;
     private String titulo, descricao;
     private String data_lancamento;
@@ -29,16 +31,17 @@ public class GerenciarFilmes {
     private int quantidade;
     private double totalcompra = 0;
     private int tamanho;
+    private Date data = new Date(00/00/0000);
     
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     
-    
     private FilmeDAO DAO = new FilmeDAO();
     
     public String cadastrarFilme(){
+        filmeAtual.setData_lancamento(format.format(data));
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
@@ -92,6 +95,14 @@ public class GerenciarFilmes {
     }
     public ArrayList<ModeloFilme> listarFilmes(){
         return DAO.consultar();
+    }
+    
+    private void atriTamanho() {
+        tamanho = cesta.size();
+    }
+
+    private void limparCampos() {
+        filmeAtual = new ModeloFilme();
     }
 
     public ArrayList<ModeloFilme> getCesta() {
@@ -182,12 +193,12 @@ public class GerenciarFilmes {
         this.tamanho = tamanho;
     }
 
-    private void atriTamanho() {
-        tamanho = cesta.size();
+    public Date getData() {
+        return data;
     }
 
-    private void limparCampos() {
-        filmeAtual = new ModeloFilme();
+    public void setData(Date data) {
+        this.data = data;
     }
     
 }
