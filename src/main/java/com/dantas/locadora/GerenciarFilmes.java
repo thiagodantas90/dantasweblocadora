@@ -30,7 +30,7 @@ public class GerenciarFilmes {
     private double totalcompra = 0;
     private int tamanho;
     
-    private ModeloFilme filmeAtual;
+    private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
