@@ -46,7 +46,8 @@ and open the template in the editor.
             <br/>-->
             
         <!--Teste -->
-        Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.filmeAtual.titulo}"/>
+            Título do Filme: <h:inputText id="titulo" value="#{gerenciarFilmes.filmeAtual.titulo}" required="true" requiredMessage="Titulo não pode ser vazio"/>
+            <h:message id="m1" for="titulo"/>
             <br/>
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}"/>        
             <br/>    
