@@ -26,22 +26,28 @@ public class GerenciarFilmes {
     private int nota;
     private int quantidade;
     private ModeloFilme filmeAtual;
+    private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     
     
-    private FilmeDAO novo = new FilmeDAO();
+    private FilmeDAO DAO = new FilmeDAO();
     
     public String cadastrarFilme(){
+        listaIds = DAO.listarIds();
+        if(!listaIds.contains(filmeAtual.id)){
+            DAO.cadastrar(filmeAtual);
+            return "cadastrado";
+        }else{
+            return "jacadastrado";
+        }
         
-        novo.cadastrar(filmeAtual);
-        return "Cadastrado Com Sucesso";
     }
     public void editar(ModeloFilme fi){
         this.filmeAtual = fi;
     }
     public void salvar(){
-        novo.atualizar(filmeAtual);
+        DAO.atualizar(filmeAtual);
     }
     public void cancelar(){
         filmeAtual = new ModeloFilme();
@@ -50,7 +56,7 @@ public class GerenciarFilmes {
     
     public void adicionarCesta(ModeloFilme fi){
         cesta.add(fi);
-        novo.alterarQuantidades(fi);
+        DAO.alterarQuantidades(fi);
     }
     public void remover(ModeloFilme ce){
         if(cesta.contains(ce)){
@@ -64,7 +70,7 @@ public class GerenciarFilmes {
         return "listaFilmes";
     }
     public ArrayList<ModeloFilme> listarFilmes(){
-        return novo.consultar();
+        return DAO.consultar();
     }
 
     public ArrayList<ModeloFilme> getCesta() {

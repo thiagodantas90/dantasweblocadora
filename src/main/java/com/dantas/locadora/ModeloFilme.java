@@ -10,7 +10,7 @@ package com.dantas.locadora;
  * @author Thiago
  */
 public class ModeloFilme {
-    private int id;
+    int id;
     private String titulo, descricao;
     private String data_lancamento;
     private int nota;

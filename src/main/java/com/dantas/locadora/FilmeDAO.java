@@ -22,7 +22,7 @@ public class FilmeDAO {
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
     private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?, DATA_LANCAMENTO = ?, NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? WHERE ID_FILMES = ?";
-    
+    private final String LISTARIDS = "SELECT ID_FILMES FROM FILMES";
   
     public void cadastrar(ModeloFilme f1) {
         try {
@@ -62,7 +62,7 @@ public class FilmeDAO {
         return lista;
     }
 
-    void alterarQuantidades(ModeloFilme fi) {
+    public void alterarQuantidades(ModeloFilme fi) {
           try {
             conecta.conecta();
             PreparedStatement prepararInstrucao;
@@ -77,7 +77,7 @@ public class FilmeDAO {
         }
     }
 
-    void atualizar(ModeloFilme fi) {
+    public void atualizar(ModeloFilme fi) {
       
         try {
             conecta.conecta();
@@ -96,5 +96,28 @@ public class FilmeDAO {
         } catch (SQLException ex) {
             Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+   public ArrayList<Integer> listarIds() {
+        ArrayList<Integer> lista = new ArrayList<Integer>();
+        int id;
+        try {
+            conecta.conecta();
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conecta.getConexao().prepareStatement(LISTARIDS);
+                    
+            ResultSet rs = prepararInstrucao.executeQuery();
+            
+            while (rs.next()) {                
+                id  = (rs.getInt("ID_FILMES"));
+                lista.add(id);
+            }
+            conecta.desconecta();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        return lista;
     }
 }
