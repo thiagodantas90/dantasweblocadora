@@ -52,10 +52,10 @@ and open the template in the editor.
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.filmeAtual.data_lancamento}"/>        
             <br/>    
             Nota:<h:inputText id="nota" value="#{gerenciarFilmes.filmeAtual.nota}">
-            
+            <f:validateDoubleRange  maximum="1"/>
             </h:inputText>
             <br/>                        
-            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}" required="true" requiredMessage="A descrição não pode ser vazio.">
+            Descrição: <h:inputText id="descricao" value="#{gerenciarFilmes.filmeAtual.descricao}">
             <f:validateLength minimum="10"/>
             </h:inputText>
             <h:message id="m2" for="descricao"/> 
