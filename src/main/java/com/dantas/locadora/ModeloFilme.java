@@ -10,12 +10,14 @@ package com.dantas.locadora;
  * @author Thiago
  */
 public class ModeloFilme {
+    private int id;
     private String titulo, descricao;
     private String data_lancamento;
     private int nota;
     private int quantidade;
 
-    public ModeloFilme(String titulo, String decricao, String data_lancamento, int nota, int quantidade) {
+    public ModeloFilme(int id, String titulo, String decricao, String data_lancamento, int nota, int quantidade) {
+        this.id = id;
         this.titulo = titulo;
         this.descricao = decricao;
         this.data_lancamento = data_lancamento;
@@ -25,6 +27,15 @@ public class ModeloFilme {
     public ModeloFilme(){
         
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getTitulo() {
         return titulo;
     }

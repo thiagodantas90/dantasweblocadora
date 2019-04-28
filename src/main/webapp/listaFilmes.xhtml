@@ -18,6 +18,10 @@ and open the template in the editor.
             
             <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi">
                 <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{fi.id}
+                </h:column>
+                <h:column>
                     <f:facet id="titulo" name="header">Título</f:facet>
                     #{fi.titulo}
                 </h:column>

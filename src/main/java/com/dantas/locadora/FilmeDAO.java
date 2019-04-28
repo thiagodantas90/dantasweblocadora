@@ -20,6 +20,7 @@ public class FilmeDAO {
     Banco conecta = new Banco();
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, DATA_LANCAMENTO, NOTA, DESCRICAO, QUANTIDADE) VALUES (?,?,?,?,?)";
     private final String LISTARFILMES = "SELECT * FROM FILMES";
+    private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - (?) WHERE ID_FILMES = (?)";
     
   
     public void cadastrar(ModeloFilme f1) {
@@ -50,7 +51,7 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(LISTARFILMES);
             ResultSet rs = prepararInstrucao.executeQuery();
             while(rs.next()){
-                ModeloFilme f = new ModeloFilme(rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
+                ModeloFilme f = new ModeloFilme(rs.getInt("ID_FILMES"),rs.getString("TITULO"), rs.getString("DESCRICAO"),rs.getString("DATA_LANCAMENTO"),rs.getInt("NOTA"),rs.getInt("QUANTIDADE"));
                 lista.add(f);
             }
             conecta.desconecta();
@@ -61,6 +62,18 @@ public class FilmeDAO {
     }
 
     void alterarQuantidades(ModeloFilme fi) {
-        
+          try {
+            conecta.conecta();
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conecta.getConexao().prepareStatement(ALTERARQUANTIDADE);
+            prepararInstrucao.setInt(1, fi.getQuantidade());
+            prepararInstrucao.setInt(2, fi.getId());
+
+            prepararInstrucao.execute();
+  
+            conecta.desconecta();
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

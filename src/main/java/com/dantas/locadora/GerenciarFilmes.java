@@ -17,6 +17,7 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 public class GerenciarFilmes {
+    private int id;
     private String titulo, descricao;
     private String data_lancamento;
     private int nota;
@@ -28,7 +29,7 @@ public class GerenciarFilmes {
     private FilmeDAO novo = new FilmeDAO();
     
     public String cadastrarFilme(){
-        f = new ModeloFilme(titulo, descricao, data_lancamento, nota, quantidade);
+        f = new ModeloFilme(id, titulo, descricao, data_lancamento, nota, quantidade);
         novo.cadastrar(f);
         return "cadastrado";
     }
@@ -38,7 +39,7 @@ public class GerenciarFilmes {
     
     public void adicionarCesta(ModeloFilme fi){
         cesta.add(fi);
-        //novo.alterarQuantidades(fi);
+        novo.alterarQuantidades(fi);
     }
     public void remover(ModeloFilme ce){
         if(cesta.contains(ce)){
@@ -61,6 +62,14 @@ public class GerenciarFilmes {
 
     public void setCesta(ArrayList<ModeloFilme> cesta) {
         this.cesta = cesta;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
