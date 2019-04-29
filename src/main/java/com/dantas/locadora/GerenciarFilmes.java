@@ -22,11 +22,10 @@ import javax.faces.bean.SessionScoped;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private Date data_lancamento;
+    private Date data_lancamento = new java.util.Date();
     private double totalcompra = 0;
-    //private Date data;
 //    java.util.Date data = new java.util.Date();  
-//    java.sql.Date dataSql = new java.sql.Date(data.getTime());
+    java.sql.Date dataSql = new java.sql.Date(data_lancamento.getTime());
       
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
@@ -35,7 +34,7 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
    
     public String cadastrarFilme(){
-      
+        
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
