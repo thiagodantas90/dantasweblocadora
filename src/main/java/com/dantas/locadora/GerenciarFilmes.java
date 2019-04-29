@@ -3,7 +3,7 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
-import java.sql.Date;
+import java.util.Date;
 import javax.faces.bean.SessionScoped;
 
 /*
