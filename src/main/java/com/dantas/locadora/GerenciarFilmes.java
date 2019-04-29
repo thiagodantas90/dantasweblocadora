@@ -3,7 +3,7 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
-import java.sql.Date;
+import java.util.Date;
 import javax.faces.bean.SessionScoped;
 
 /*
@@ -24,9 +24,7 @@ public class GerenciarFilmes {
     private String titulo, descricao;
     private String data_lancamento;
     private double totalcompra = 0;
-    private Date data;
-    
-    
+    private Date data;  
       
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
