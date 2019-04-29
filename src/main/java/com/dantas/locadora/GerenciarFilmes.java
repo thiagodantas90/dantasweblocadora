@@ -72,6 +72,7 @@ public class GerenciarFilmes {
             DAO.devolverItem(cesta.get(i));
         }
         cesta.clear();
+        atriTamanho();
     }
     public ArrayList<ModeloFilme> verCesta(){
         return cesta;
