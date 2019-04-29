@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
 import java.sql.Date;
-import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.SessionScoped;
 
 /*
@@ -33,14 +37,18 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
     private String dataL;
     
-    public String cadastrarFilme() throws ParseException, SQLException{
+    public String cadastrarFilme(){
         
-        DateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dataL = dateFormat.format(data_lancamento);
-        data_lancamento = dateFormat.parse(dataL);
+        try {
+            data_lancamento = (Date) dateFormat.parse(dataL);
+        } catch (ParseException ex) {
+            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
+        }
         java.sql.Date d = new java.sql.Date(data_lancamento.getTime());
         
-        filmeAtual.setId = d;
+        filmeAtual.setData_lancamento(d);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
