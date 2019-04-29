@@ -35,10 +35,10 @@ public class GerenciarFilmes {
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     private FilmeDAO DAO = new FilmeDAO();
-    private String dataL;
+    
     
     public String cadastrarFilme(){
-        
+        String dataL;
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dataL = dateFormat.format(data_lancamento);
         try {
