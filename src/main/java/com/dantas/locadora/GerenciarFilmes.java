@@ -34,7 +34,7 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
    
     public String cadastrarFilme(){
-        
+        filmeAtual.setData_lancamento(dataSql);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
