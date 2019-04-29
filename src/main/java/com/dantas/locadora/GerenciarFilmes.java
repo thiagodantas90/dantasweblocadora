@@ -3,7 +3,7 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
-import java.util.Date;
+import java.sql.Date;
 import javax.faces.bean.SessionScoped;
 
 /*
@@ -22,10 +22,9 @@ import javax.faces.bean.SessionScoped;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private Date data_lancamento = new java.util.Date();
+    private Date data_lancamento;
     private double totalcompra = 0;
-//    java.util.Date data = new java.util.Date();  
-    java.sql.Date dataSql = new java.sql.Date(data_lancamento.getTime());
+
       
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
@@ -34,7 +33,7 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
    
     public String cadastrarFilme(){
-        filmeAtual.setData_lancamento(dataSql);
+        
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
