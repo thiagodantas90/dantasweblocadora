@@ -63,11 +63,11 @@ public class GerenciarFilmes {
         
     }
     public void editar(ModeloFilme fi){
-        formatar();
-        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
         this.filmeAtual = fi;
     }
     public void salvar(){
+        formatar();
+        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
         DAO.atualizar(filmeAtual);
         limparCampos();
     }
