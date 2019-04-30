@@ -38,17 +38,7 @@ public class GerenciarFilmes {
     
     
     public String cadastrarFilme(){
-        String dataL;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dataL = dateFormat.format(data_lancamento);
-        try {
-            data_lancamento = (Date) dateFormat.parse(dataL);
-        } catch (ParseException ex) {
-            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        java.sql.Date d = new java.sql.Date(data_lancamento.getTime());
         
-        filmeAtual.setData_lancamento(d);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
