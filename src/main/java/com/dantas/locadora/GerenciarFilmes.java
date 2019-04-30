@@ -7,6 +7,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.SessionScoped;
 
 /*
@@ -35,12 +37,20 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
     
     
-    public String cadastrarFilme() throws ParseException{
-        DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+    public java.sql.Date formatar(){
+        java.sql.Date data;
+        DateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
         String dataFormatada = formatador.format(data_lancamento);
-        java.sql.Date data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
-             
-        filmeAtual.setData_lancamento(data);
+        try {
+            return data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
+        } catch (ParseException ex) {
+            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public String cadastrarFilme() throws ParseException{
+                   
+        filmeAtual.setData_lancamento(formatar());
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
@@ -52,6 +62,7 @@ public class GerenciarFilmes {
         
     }
     public void editar(ModeloFilme fi){
+        filmeAtual.setData_lancamento(formatar());
         this.filmeAtual = fi;
     }
     public void salvar(){
