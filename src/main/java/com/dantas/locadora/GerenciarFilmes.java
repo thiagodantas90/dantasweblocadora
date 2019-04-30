@@ -27,7 +27,7 @@ import javax.faces.bean.SessionScoped;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private Date data_lancamento = new Date();
+    private Date data_lancamento;
     private double totalcompra = 0;
     String dataFormatada;
     
