@@ -116,6 +116,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
+        data_lancamento = null;
     }
     // get e set
 
