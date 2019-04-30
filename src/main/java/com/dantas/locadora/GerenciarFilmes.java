@@ -25,7 +25,7 @@ import javax.faces.bean.SessionScoped;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private Date data_lancamento;
+    private Date data_lancamento = new Date();
     private double totalcompra = 0;
     
     private ModeloFilme filmeAtual = new ModeloFilme();
@@ -36,11 +36,10 @@ public class GerenciarFilmes {
     
     
     public String cadastrarFilme() throws ParseException{
-        String dataString = String.valueOf(data_lancamento);
-        DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        java.sql.Date data = new java.sql.Date(fmt.parse(dataString).getTime());
-        
-       
+        DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = formatador.format(data_lancamento);
+        java.sql.Date data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
+             
         filmeAtual.setData_lancamento(data);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
