@@ -22,7 +22,7 @@ and open the template in the editor.
             <br/>
             
             Data de Lançamento: <h:inputText id="dataLancamento" value="#{gerenciarFilmes.data_lancamento}" required="true" requiredMessage="Data não pode ser vazio" validatorMessage="A data tem que ser no formato '01/01/2000'.">
-                <f:convertDateTime pattern="yyyy/MM/dd" for="fData"/>               
+                <f:convertDateTime pattern="dd/MM/yyyy"/>               
             </h:inputText>
             <h:message id="m5" for="dataLancamento"/>
             <br/>
