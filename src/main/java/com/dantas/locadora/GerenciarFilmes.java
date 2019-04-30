@@ -29,6 +29,7 @@ public class GerenciarFilmes {
     private String titulo, descricao;
     private Date data_lancamento = new Date();
     private double totalcompra = 0;
+    String dataFormatada;
     
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
@@ -37,20 +38,20 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
     
     
-    public java.sql.Date formatar(){
+    public void formatar(){
         java.sql.Date data;
         DateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
-        String dataFormatada = formatador.format(data_lancamento);
-        try {
-            return data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+        dataFormatada = formatador.format(data_lancamento);
+//        try {
+//            return data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
+//        } catch (ParseException ex) {
+//            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
     }
     public String cadastrarFilme() throws ParseException{
-                   
-        filmeAtual.setData_lancamento(formatar());
+        formatar();
+        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
@@ -62,7 +63,8 @@ public class GerenciarFilmes {
         
     }
     public void editar(ModeloFilme fi){
-        filmeAtual.setData_lancamento(formatar());
+        formatar();
+        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
         this.filmeAtual = fi;
     }
     public void salvar(){
