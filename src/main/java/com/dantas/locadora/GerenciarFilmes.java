@@ -3,6 +3,9 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.faces.bean.SessionScoped;
 
@@ -32,10 +35,13 @@ public class GerenciarFilmes {
     private FilmeDAO DAO = new FilmeDAO();
     
     
-    public String cadastrarFilme(){
+    public String cadastrarFilme() throws ParseException{
+        String dataString = String.valueOf(data_lancamento);
+        DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        java.sql.Date data = new java.sql.Date(fmt.parse(dataString).getTime());
         
-        java.sql.Date d = (java.sql.Date) data_lancamento;
-        filmeAtual.setData_lancamento(d);
+       
+        filmeAtual.setData_lancamento(data);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
             DAO.cadastrar(filmeAtual);
