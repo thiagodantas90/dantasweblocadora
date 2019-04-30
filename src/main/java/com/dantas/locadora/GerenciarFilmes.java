@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.SessionScoped;
 
 /*
@@ -29,7 +24,7 @@ public class GerenciarFilmes {
     private String titulo, descricao;
     private Date data_lancamento;
     private double totalcompra = 0;
-
+    
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
@@ -38,6 +33,7 @@ public class GerenciarFilmes {
     
     
     public String cadastrarFilme(){
+        
         
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.id)){
