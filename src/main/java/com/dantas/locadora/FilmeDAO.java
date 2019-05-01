@@ -23,7 +23,7 @@ public class FilmeDAO {
     private final String LISTARFILMES = "SELECT * FROM FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
     private final String DEVOLVERITEM = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE + 1 WHERE ID_FILMES = (?)";
-    private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?,  NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? DATA_LANCAMENTO = ?,WHERE ID_FILMES = ?";
+    private final String ATUALZARFILME = "UPDATE FILMES SET TITULO = ?,  NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? DATA_LANCAMENTO = ? WHERE ID_FILMES = ?";
     private final String LISTARIDS = "SELECT ID_FILMES FROM FILMES";
   
     public void cadastrar(ModeloFilme f1) {
