@@ -34,26 +34,26 @@ public class GerenciarFilmes {
         java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
         return dataSql;
     }
-//    public String cadastrarFilme(){
-//        dataSql = new java.sql.Date(data_lancamento.getTime());
-//        filmeAtual.setData_lancamento(dataSql);
-//        listaIds = DAO.listarIds();
-//        if(!listaIds.contains(filmeAtual.getId())){
-//            DAO.cadastrar(filmeAtual);
-//            limparCampos();
-//            return "cadastrado";
-//        }else{
-//             return "jacadastrado";
-//        }
-//    }
+    public String cadastrarFilme(){
+        dataSql = new java.sql.Date(data_lancamento.getTime());
+        filmeAtual.setData_lancamento(dataSql);
+        listaIds = DAO.listarIds();
+        if(!listaIds.contains(filmeAtual.getId())){
+            DAO.cadastrar(filmeAtual);
+            limparCampos();
+            return "cadastrado";
+        }else{
+             return "jacadastrado";
+        }
+    }
     public void editar(ModeloFilme fi){
         data_lancamento = fi.getData_lancamento();
         this.filmeAtual = fi;
     }
-    public void cadastrarFilme(){
+    public void salvar(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
-        filmeAtual.setData_lancamento(dataSql);
-        DAO.atualizar(filmeAtual);
+        ModeloFilme novo = new ModeloFilme(filmeAtual.getTitulo(), filmeAtual.getDescricao(), dataSql, filmeAtual.getNota(), filmeAtual.getQuantidade());
+        DAO.atualizar(novo);
         limparCampos();
     }
     public void cancelar(){
