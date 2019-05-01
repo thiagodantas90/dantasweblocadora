@@ -18,8 +18,7 @@ import javax.faces.context.FacesContext;
 //@ApplicationScoped
 @SessionScoped
 public class GerenciarFilmes {
-    private int id, nota,quantidade,tamanho;
-    private String titulo, descricao;
+    private int tamanho;
     private java.util.Date data_lancamento;
     private java.sql.Date dataSql;
     private double totalcompra = 0;
@@ -29,11 +28,7 @@ public class GerenciarFilmes {
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     private FilmeDAO DAO = new FilmeDAO();
-    
-    private java.sql.Date converteData(){
-        java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
-        return dataSql;
-    }
+   
     public String cadastrarFilme(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
         filmeAtual.setData_lancamento(dataSql);
@@ -102,7 +97,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
-       
+        data_lancamento = new Date();
     }
     // get e set
 
@@ -114,60 +109,12 @@ public class GerenciarFilmes {
         this.cesta = cesta;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-//
-//    public Date getData_lancamento() {
-//        return data_lancamento;
-//    }
-//
-//    public void setData_lancamento(Date data_lancamento) {
-//        this.data_lancamento = data_lancamento;
-//    }
-
     public Date getData_lancamento() {
         return data_lancamento;
     }
 
     public void setData_lancamento(Date data_lancamento) {
         this.data_lancamento = data_lancamento;
-    }
-
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
     }
 
     public ArrayList<ModeloFilme> getListaDeFilmes() {

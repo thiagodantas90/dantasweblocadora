@@ -20,10 +20,10 @@ import java.sql.Date;
 public class FilmeDAO {
     private Banco conecta = new Banco();
     private final String CADASTRARFILME = "INSERT INTO FILMES (TITULO, NOTA, DESCRICAO, QUANTIDADE, DATA_LANCAMENTO) VALUES (?,?,?,?,?)";
-    private final String LISTARFILMES = "SELECT * FROM FILMES";
+    private final String LISTARFILMES = "SELECT * FROM FILMES ORDER BY ID_FILMES";
     private final String ALTERARQUANTIDADE = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE - 1 WHERE ID_FILMES = (?)";
     private final String DEVOLVERITEM = "UPDATE FILMES SET QUANTIDADE = QUANTIDADE + 1 WHERE ID_FILMES = (?)";
-    private final String ATUALIZARFILME = "UPDATE FILMES SET TITULO = ?,  NOTA = ?,DESCRICAO = ?, QUANTIDADE = ? DATA_LANCAMENTO = ? WHERE ID_FILMES = ?";
+    private final String ATUALIZARFILME = "UPDATE FILMES SET TITULO = ?,  NOTA = ?,DESCRICAO = ?, QUANTIDADE = ?, DATA_LANCAMENTO = ? WHERE ID_FILMES = ?";
     private final String LISTARIDS = "SELECT ID_FILMES FROM FILMES";
   
     public void cadastrar(ModeloFilme f1) {
@@ -93,7 +93,7 @@ public class FilmeDAO {
             prepararInstrucao.setDate(5, fi.getData_lancamento());
             prepararInstrucao.setInt(6, fi.getId());
             prepararInstrucao.executeUpdate();
-            
+                        
             conecta.desconecta();
         } catch (SQLException ex) {
             Logger.getLogger(FilmeDAO.class.getName()).log(Level.SEVERE, null, ex);
