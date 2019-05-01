@@ -3,9 +3,7 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
-;
 import java.util.Date;
-;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -19,6 +17,7 @@ public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
     private java.util.Date data_lancamento = new java.util.Date();
+    private java.sql.Date dataSql = new java.sql.Date(data_lancamento.getTime());
     private double totalcompra = 0;
     String dataFormatada;
     
@@ -27,10 +26,7 @@ public class GerenciarFilmes {
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     private FilmeDAO DAO = new FilmeDAO();
-    
-    
-    java.sql.Date dataSql = new java.sql.Date(data_lancamento.getTime());
-    
+        
     public String cadastrarFilme(){
         filmeAtual.setData_lancamento(dataSql);
         listaIds = DAO.listarIds();
@@ -41,12 +37,12 @@ public class GerenciarFilmes {
         }else{
             return "jacadastrado";
         }
-        
     }
     public void editar(ModeloFilme fi){
         this.filmeAtual = fi;
     }
     public void salvar(){
+        filmeAtual.setData_lancamento(dataSql);
         DAO.atualizar(filmeAtual);
         limparCampos();
     }
@@ -130,6 +126,14 @@ public class GerenciarFilmes {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+//
+//    public Date getData_lancamento() {
+//        return data_lancamento;
+//    }
+//
+//    public void setData_lancamento(Date data_lancamento) {
+//        this.data_lancamento = data_lancamento;
+//    }
 
     public Date getData_lancamento() {
         return data_lancamento;
@@ -137,6 +141,14 @@ public class GerenciarFilmes {
 
     public void setData_lancamento(Date data_lancamento) {
         this.data_lancamento = data_lancamento;
+    }
+
+    public java.sql.Date getDataSql() {
+        return dataSql;
+    }
+
+    public void setDataSql(java.sql.Date dataSql) {
+        this.dataSql = dataSql;
     }
 
     public int getNota() {
