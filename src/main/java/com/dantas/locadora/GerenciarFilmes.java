@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private java.util.Date data_lancamento = new Date();
+    private java.util.Date data_lancamento;
     private java.sql.Date dataSql;
     private double totalcompra = 0;
        
@@ -52,8 +52,8 @@ public class GerenciarFilmes {
     }
     public void salvar(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
-        ModeloFilme novo = new ModeloFilme(titulo, descricao, dataSql, nota, quantidade);
-        DAO.atualizar(novo);
+        filmeAtual.setData_lancamento(dataSql);
+        DAO.atualizar(filmeAtual);
         limparCampos();
     }
     public void cancelar(){
@@ -92,6 +92,7 @@ public class GerenciarFilmes {
         totalcompra = 4.5 * cesta.size();
     }
     public ArrayList<ModeloFilme> listarFilmes(){
+        
         return DAO.consultar();
     }
     
@@ -101,7 +102,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
-        
+       
     }
     // get e set
 
