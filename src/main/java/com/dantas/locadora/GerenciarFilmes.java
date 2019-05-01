@@ -91,7 +91,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
-        
+        data_lancamento = new Date("__/__/___");
     }
     // get e set
 
