@@ -3,6 +3,8 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.faces.bean.SessionScoped;
 
@@ -17,18 +19,21 @@ public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
     private java.util.Date data_lancamento = new java.util.Date();
-    private java.sql.Date dataSql = new java.sql.Date(data_lancamento.getTime());
-    private double totalcompra = 0;
-    String dataFormatada;
     
+    private double totalcompra = 0;
+       
     private ModeloFilme filmeAtual = new ModeloFilme();
     private ArrayList<Integer> listaIds;
     private ArrayList<ModeloFilme> listaDeFilmes;
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     private FilmeDAO DAO = new FilmeDAO();
-        
+    
+    private java.sql.Date converteData(){
+        java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
+        return dataSql;
+    }
     public String cadastrarFilme(){
-        filmeAtual.setData_lancamento(dataSql);
+        filmeAtual.setData_lancamento(converteData());
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.getId())){
             DAO.cadastrar(filmeAtual);
@@ -39,17 +44,18 @@ public class GerenciarFilmes {
         }
     }
     public void editar(ModeloFilme fi){
-        java.util.Date date1 = fi.getData_lancamento();
-        fi.setData_lancamento((java.sql.Date) date1);
+        java.sql.Date d = fi.getData_lancamento();
+        filmeAtual.setData_lancamento(d);       
         this.filmeAtual = fi;
     }
     public void salvar(){
-        filmeAtual.setData_lancamento(dataSql);
+        filmeAtual.setData_lancamento(converteData());
         DAO.atualizar(filmeAtual);
         limparCampos();
     }
     public void cancelar(){
         limparCampos();
+        data_lancamento = new Date();
     }
     
     public void adicionarCesta(ModeloFilme fi){
@@ -143,14 +149,6 @@ public class GerenciarFilmes {
 
     public void setData_lancamento(Date data_lancamento) {
         this.data_lancamento = data_lancamento;
-    }
-
-    public java.sql.Date getDataSql() {
-        return dataSql;
-    }
-
-    public void setDataSql(java.sql.Date dataSql) {
-        this.dataSql = dataSql;
     }
 
     public int getNota() {
