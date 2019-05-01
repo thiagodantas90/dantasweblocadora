@@ -18,8 +18,7 @@ import javax.faces.bean.SessionScoped;
 public class GerenciarFilmes {
     private int id, nota,quantidade,tamanho;
     private String titulo, descricao;
-    private java.util.Date data_lancamento = new java.util.Date();
-    
+    private java.util.Date data_lancamento;
     private double totalcompra = 0;
        
     private ModeloFilme filmeAtual = new ModeloFilme();
@@ -33,7 +32,8 @@ public class GerenciarFilmes {
         return dataSql;
     }
     public String cadastrarFilme(){
-        filmeAtual.setData_lancamento(converteData());
+        java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
+        filmeAtual.setData_lancamento(dataSql);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.getId())){
             DAO.cadastrar(filmeAtual);
@@ -44,12 +44,12 @@ public class GerenciarFilmes {
         }
     }
     public void editar(ModeloFilme fi){
-        java.sql.Date d = fi.getData_lancamento();
-        filmeAtual.setData_lancamento(d);       
+          
         this.filmeAtual = fi;
     }
     public void salvar(){
-        filmeAtual.setData_lancamento(converteData());
+        java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
+        filmeAtual.setData_lancamento(dataSql);
         DAO.atualizar(filmeAtual);
         limparCampos();
     }
@@ -99,7 +99,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
-        data_lancamento = new Date("__/__/___");
+        
     }
     // get e set
 
