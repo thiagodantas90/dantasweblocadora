@@ -44,7 +44,6 @@ public class GerenciarFilmes {
         }
     }
     public void editar(ModeloFilme fi){
-          
         this.filmeAtual = fi;
     }
     public void salvar(){
@@ -55,7 +54,6 @@ public class GerenciarFilmes {
     }
     public void cancelar(){
         limparCampos();
-        data_lancamento = new Date();
     }
     
     public void adicionarCesta(ModeloFilme fi){
