@@ -6,7 +6,9 @@ import com.dantas.locadora.ModeloFilme;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -32,16 +34,16 @@ public class GerenciarFilmes {
         java.sql.Date dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
         return dataSql;
     }
-    public String cadastrarFilme(){
+    public void cadastrarFilme(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
         filmeAtual.setData_lancamento(dataSql);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.getId())){
             DAO.cadastrar(filmeAtual);
             limparCampos();
-            return "cadastrado";
+             FacesContext.getCurrentInstance().addMessage("y:cad", new FacesMessage("Já Cadastrado"));
         }else{
-            return "jacadastrado";
+             FacesContext.getCurrentInstance().addMessage("y:cad", new FacesMessage("Já Cadastrado"));
         }
     }
     public void editar(ModeloFilme fi){
