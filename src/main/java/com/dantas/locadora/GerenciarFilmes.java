@@ -44,6 +44,7 @@ public class GerenciarFilmes {
         }
     }
     public void editar(ModeloFilme fi){
+        data_lancamento = fi.getData_lancamento();
         this.filmeAtual = fi;
     }
     public void salvar(){
