@@ -33,10 +33,10 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(CADASTRARFILME);
             
             prepararInstrucao.setString(1, f1.getTitulo());
-            prepararInstrucao.setDate(2, f1.getData_lancamento());
-            prepararInstrucao.setInt(3, f1.getNota());
-            prepararInstrucao.setString(4, f1.getDescricao());
-            prepararInstrucao.setInt(5, f1.getQuantidade());
+            prepararInstrucao.setInt(2, f1.getNota());
+            prepararInstrucao.setString(3, f1.getDescricao());
+            prepararInstrucao.setInt(4, f1.getQuantidade());
+            prepararInstrucao.setDate(5, f1.getData_lancamento());
             
             prepararInstrucao.execute();
             
@@ -87,10 +87,10 @@ public class FilmeDAO {
             prepararInstrucao = conecta.getConexao().prepareStatement(ATUALZARFILME);
             
             prepararInstrucao.setString(1, fi.getTitulo());
-            prepararInstrucao.setDate(2, fi.getData_lancamento());
-            prepararInstrucao.setInt(3, fi.getNota());
-            prepararInstrucao.setString(4, fi.getDescricao());
-            prepararInstrucao.setInt(5, fi.getQuantidade());
+            prepararInstrucao.setInt(2, fi.getNota());
+            prepararInstrucao.setString(3, fi.getDescricao());
+            prepararInstrucao.setInt(4, fi.getQuantidade());
+            prepararInstrucao.setDate(5, fi.getData_lancamento());
             prepararInstrucao.setInt(6, fi.getId());
             prepararInstrucao.executeUpdate();
             
