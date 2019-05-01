@@ -3,19 +3,10 @@ package com.dantas.locadora;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+;
 import javax.faces.bean.SessionScoped;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -37,23 +28,10 @@ public class GerenciarFilmes {
     private ArrayList<ModeloFilme> cesta = new ArrayList<ModeloFilme>();
     private FilmeDAO DAO = new FilmeDAO();
     
-    
-    public void formatar(){
-        java.sql.Date data;
-        DateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
-        dataFormatada = formatador.format(data_lancamento);
-//        try {
-//            return data = new java.sql.Date(formatador.parse(dataFormatada).getTime());
-//        } catch (ParseException ex) {
-//            Logger.getLogger(GerenciarFilmes.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-    }
-    public String cadastrarFilme() throws ParseException{
-        formatar();
-        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
+    public String cadastrarFilme(){
+        
         listaIds = DAO.listarIds();
-        if(!listaIds.contains(filmeAtual.id)){
+        if(!listaIds.contains(filmeAtual.getId())){
             DAO.cadastrar(filmeAtual);
             limparCampos();
             return "cadastrado";
@@ -66,8 +44,6 @@ public class GerenciarFilmes {
         this.filmeAtual = fi;
     }
     public void salvar(){
-        formatar();
-        filmeAtual.setData_lancamento(java.sql.Date.valueOf(dataFormatada));
         DAO.atualizar(filmeAtual);
         limparCampos();
     }

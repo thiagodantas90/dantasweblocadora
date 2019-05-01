@@ -8,7 +8,7 @@ import java.sql.Date;
  * @author Thiago
  */
 public class ModeloFilme {
-    int id;
+    private int id;
     private String titulo, descricao;
     private Date data_lancamento;
     private int nota;
@@ -32,7 +32,7 @@ public class ModeloFilme {
     public ModeloFilme(){
         
     }
-
+    
     public int getId() {
         return id;
     }
