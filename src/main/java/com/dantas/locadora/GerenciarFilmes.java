@@ -39,6 +39,8 @@ public class GerenciarFilmes {
         }
     }
     public void editar(ModeloFilme fi){
+        java.util.Date date1 = fi.getData_lancamento();
+        fi.setData_lancamento((java.sql.Date) date1);
         this.filmeAtual = fi;
     }
     public void salvar(){
