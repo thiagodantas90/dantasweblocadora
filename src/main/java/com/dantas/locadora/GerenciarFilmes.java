@@ -52,7 +52,7 @@ public class GerenciarFilmes {
     }
     public void salvar(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
-        ModeloFilme novo = new ModeloFilme(filmeAtual.getTitulo(), filmeAtual.getDescricao(), dataSql, filmeAtual.getNota(), filmeAtual.getQuantidade());
+        ModeloFilme novo = new ModeloFilme(titulo, descricao, dataSql, nota, quantidade);
         DAO.atualizar(novo);
         limparCampos();
     }
