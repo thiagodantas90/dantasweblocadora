@@ -33,7 +33,7 @@ public class GerenciarFilmes {
         return dataSql;
     }
     public String cadastrarFilme(){
-        dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
+        dataSql = new java.sql.Date(data_lancamento.getTime());
         filmeAtual.setData_lancamento(dataSql);
         listaIds = DAO.listarIds();
         if(!listaIds.contains(filmeAtual.getId())){
@@ -49,7 +49,7 @@ public class GerenciarFilmes {
         this.filmeAtual = fi;
     }
     public void salvar(){
-        dataSql = new java.sql.Date(filmeAtual.getData_lancamento().getTime());
+        dataSql = new java.sql.Date(data_lancamento.getTime());
         filmeAtual.setData_lancamento(dataSql);
         DAO.atualizar(filmeAtual);
         limparCampos();
