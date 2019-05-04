@@ -15,16 +15,16 @@ import java.sql.Statement;
  * @author Thiago
  */
 public class Banco {
-//    private static final String DRIVER = "org.postgresql.Driver";   
-//    private static final String URL = "jdbc:postgresql://ec2-54-83-205-27.compute-1.amazonaws.com:5432/d9cpk5q3kb1doh?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";   
-//    private static final String USERNAME = "vajozrpxbmxspv";   
-//    private static final String PASSWORD = "74fe188e87cf558ce7f2e41cee8430e2a5b7849eacbda6cce46a4aa9081d75f1";
-    
     private static final String DRIVER = "org.postgresql.Driver";   
-    private static final String URL = "jdbc:postgresql://localhost:5432/dantas";   
-    private static final String USERNAME = "postgres";   
-    private static final String PASSWORD = "1234";
+    private static final String URL = "jdbc:postgresql://ec2-54-83-205-27.compute-1.amazonaws.com:5432/d9cpk5q3kb1doh?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";   
+    private static final String USERNAME = "vajozrpxbmxspv";   
+    private static final String PASSWORD = "74fe188e87cf558ce7f2e41cee8430e2a5b7849eacbda6cce46a4aa9081d75f1";
     
+//    private static final String DRIVER = "org.postgresql.Driver";   
+//    private static final String URL = "jdbc:postgresql://localhost:5432/dantas";   
+//    private static final String USERNAME = "postgres";   
+//    private static final String PASSWORD = "1234";
+//    
     
     private Connection conexao;
 	
