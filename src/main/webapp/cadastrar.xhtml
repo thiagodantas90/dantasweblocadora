@@ -65,11 +65,7 @@ and open the template in the editor.
         <h:form>
             
             <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi" border="1">
-                <h:column >
-                    <f:facet name="header">ID</f:facet>
-                    #{fi.id}
-                    
-                </h:column>
+                
                 <h:column>
                     <f:facet name="header">Título</f:facet>
                     #{fi.titulo}
