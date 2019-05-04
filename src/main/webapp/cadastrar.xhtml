@@ -48,10 +48,14 @@ and open the template in the editor.
             <h:message id="m4" for="quantidade"/>
             <br/>
             
-            <h:commandButton id="cad" action="#{gerenciarFilmes.cadastrarFilme()}" value="Cadastrar"/>
-            <h:message id="m6" for="cad"/> <br/>
-            <h:commandButton type="reset" action="#{gerenciarFilmes.cancelar()}" value="Cancelar"  immediate="true" /><br/>
+            <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Cadastrar"/>
+            <br/>
+            <br/>
+            <h:commandButton type="reset" action="#{gerenciarFilmes.cancelar()}" value="Cancelar" immediate="true"/>                    
+            <br/>
+            <br/>
             <h:commandButton action="#{gerenciarFilmes.salvar()}" value="Atualizar" /><br/>
+            <h:commandButton action="index" value="Pagina Inicial" /><br/>
                        
         </h:form>
         <!--divisão-->
