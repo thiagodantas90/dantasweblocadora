@@ -52,6 +52,7 @@ public class GerenciarFilmes {
         limparCampos();
     }
     public void cancelar(){
+        System.out.println("Entrou no cancelar");
         limparCampos();
     }
     
@@ -97,7 +98,7 @@ public class GerenciarFilmes {
 
     private void limparCampos() {
         filmeAtual = new ModeloFilme();
-        data_lancamento = new Date();
+        data_lancamento = null;
     }
     // get e set
 
