@@ -47,16 +47,19 @@ and open the template in the editor.
             </h:inputText>
             <h:message id="m4" for="quantidade"/>
             <br/>
-            
+            <br/>
             <h:commandButton action="#{gerenciarFilmes.cadastrarFilme()}" value="Cadastrar"/>
             <br/>
             <br/>
             <h:commandButton type="reset" action="#{gerenciarFilmes.cancelar()}" value="Cancelar" immediate="true"/>                    
             <br/>
             <br/>
-            <h:commandButton action="#{gerenciarFilmes.salvar()}" value="Atualizar" /><br/>
-            <h:commandButton action="index" value="Pagina Inicial" /><br/>
-                       
+            <h:commandButton action="#{gerenciarFilmes.salvar()}" value="Atualizar" />
+            <br/>            
+            <br/>           
+            <h:commandButton action="index" value="Pagina Inicial" immediate="true" /><br/>
+            <br/>            
+            <br/>       
         </h:form>
         <!--divisão-->
         <h:form>
@@ -89,7 +92,7 @@ and open the template in the editor.
                 </h:column>
                 <h:column>
                     <f:facet name="header">Editar</f:facet>
-                    <h:commandButton action="#{gerenciarFilmes.editar(fi)}" value="Editar" />
+                    <h:commandButton action="#{gerenciarFilmes.editar(fi)}" value="Editar"/>
                 </h:column>
 
             </h:dataTable>

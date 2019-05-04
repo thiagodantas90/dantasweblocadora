@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import com.dantas.locadora.ModeloFilme;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.faces.application.FacesMessage;
@@ -81,7 +82,10 @@ public class GerenciarFilmes {
     public ArrayList<ModeloFilme> verCesta(){
         return cesta;
     }
-    
+    public Double totalComp(){
+        calcularPreco();
+        return totalcompra;
+    }
     public String finalizar(){
         calcularPreco();
         atriTamanho();
@@ -89,7 +93,7 @@ public class GerenciarFilmes {
         return "totalCompra";
     }
     private void calcularPreco(){
-        totalcompra = 4.5 * cesta.size();
+       totalcompra = 4.5 * cesta.size();;      
     }
     
     public ArrayList<ModeloFilme> listarFilmes(){
