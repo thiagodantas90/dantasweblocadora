@@ -15,10 +15,12 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:form>
+           
+            <h1>Sua cesta de Pedido</h1>
             <h:commandButton action="#{gerenciarFilmes.limparCesta()}" value="Limparcesta" disabled="#{gerenciarFilmes.cesta.size()le 0}"/>
             <h:commandButton action="#{gerenciarFilmes.finalizar()}" value="Finalizar" disabled="#{gerenciarFilmes.cesta.size() le 0}"/>
             <h:commandButton action="listaFilmes" value="Catálago"/>
-            <h1>Sua cesta de Pedido</h1>
+            <h3>Preço por Unidade: R$ 4,50</h3>
             <h3>Total da Compra: R$ <h:outputText value="#{gerenciarFilmes.totalComp()}"/></h3>
             
             <h:dataTable value="#{gerenciarFilmes.verCesta()}" var="ce" border="1">
@@ -37,13 +39,9 @@ and open the template in the editor.
                 <h:column>
                     <f:facet id="nota" name="header">Nota</f:facet>
                     #{ce.nota}
-                </h:column>
-<!--                <h:column>
-                    <f:facet name="header">Quantidade</f:facet>
-                    #{ce.quantidade}
-                </h:column>-->
+                </h:column>       
                 <h:column>
-                    <f:facet name="header">Excluir</f:facet>
+                    <f:facet name="header">Remover</f:facet>
                     <h:commandButton action="#{gerenciarFilmes.remover(ce)}" value="Remover" />
                 </h:column>                             
             </h:dataTable>
