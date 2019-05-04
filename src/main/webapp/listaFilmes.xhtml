@@ -17,7 +17,7 @@ and open the template in the editor.
         <h1>Catálago</h1>
         <h:form>
             
-            <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi">
+            <h:dataTable value="#{gerenciarFilmes.listarFilmes()}" var="fi" border="1">
                 <h:column>
                     <f:facet name="header">ID</f:facet>
                     #{fi.id}
