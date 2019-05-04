@@ -19,7 +19,7 @@ and open the template in the editor.
             <h1>Sua cesta de Pedido</h1>
             <h:commandButton action="#{gerenciarFilmes.limparCesta()}" value="Limparcesta" disabled="#{gerenciarFilmes.cesta.size()le 0}"/>
             <h:commandButton action="#{gerenciarFilmes.finalizar()}" value="Finalizar" disabled="#{gerenciarFilmes.cesta.size() le 0}"/>
-            <h:commandButton action="listaFilmes" value="Catálago"/>
+            <h:commandButton action="listaFilmes" value="Catálogo"/>
             <h3>Preço por Unidade: R$ 4,50</h3>
             <h3>Total da Compra: R$ <h:outputText value="#{gerenciarFilmes.totalComp()}"/></h3>
             
