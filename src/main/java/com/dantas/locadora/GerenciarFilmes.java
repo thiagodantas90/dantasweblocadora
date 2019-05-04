@@ -48,12 +48,14 @@ public class GerenciarFilmes {
     public void salvar(){
         dataSql = new java.sql.Date(data_lancamento.getTime());
         filmeAtual.setData_lancamento(dataSql);
-        DAO.atualizar(filmeAtual);
+        if(filmeAtual != null){
+            DAO.atualizar(filmeAtual);
+        }
+        
         limparCampos();
     }
     public void cancelar(){
-        System.out.println("Entrou no cancelar");
-        limparCampos();
+           limparCampos();
     }
     
     public void adicionarCesta(ModeloFilme fi){
@@ -75,9 +77,11 @@ public class GerenciarFilmes {
         cesta.clear();
         atriTamanho();
     }
+    
     public ArrayList<ModeloFilme> verCesta(){
         return cesta;
     }
+    
     public String finalizar(){
         calcularPreco();
         atriTamanho();
@@ -87,6 +91,7 @@ public class GerenciarFilmes {
     private void calcularPreco(){
         totalcompra = 4.5 * cesta.size();
     }
+    
     public ArrayList<ModeloFilme> listarFilmes(){
         
         return DAO.consultar();
@@ -97,7 +102,7 @@ public class GerenciarFilmes {
     }
 
     private void limparCampos() {
-        filmeAtual = new ModeloFilme();
+        this.filmeAtual = new ModeloFilme();
         data_lancamento = null;
     }
     // get e set
